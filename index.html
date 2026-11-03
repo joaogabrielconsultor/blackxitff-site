@@ -569,17 +569,24 @@ footer p { font-size: 12px; color: var(--fg-muted); }
 
 <script>
 const androidProducts = [
-  { name: "Painel Android", slug: "painel-android", icon: "🤖" },
-  { name: "Painel Mod APK", slug: "painel-mod-apk", icon: "📦" },
-  { name: "Proxy Menu Android", slug: "proxy-menu-android", icon: "🌐" },
-  { name: "HS Proxy Android", slug: "hs-proxy-android", icon: "🎯" },
+  { name: "Painel Android — 6H DRIP",      icon: "🤖", now: "R$ 15,00" },
+  { name: "Painel Android — 12H DRIP",     icon: "🤖", now: "R$ 20,00" },
+  { name: "Painel Android — 1 DIA DRIP",   icon: "🤖", now: "R$ 25,00" },
+  { name: "Painel Android — 7 DIAS DRIP",  icon: "🤖", now: "R$ 75,00" },
+  { name: "Painel Android — 30 DIAS DRIP", icon: "🤖", now: "R$ 130,00" },
+  { name: "Painel Mod APK — 1 DIA",        icon: "📦", now: "R$ 19,00" },
+  { name: "Painel Mod APK — 10 DIAS",     icon: "📦", now: "R$ 49,00" },
+  { name: "Painel Mod APK — 30 DIAS",     icon: "📦", now: "R$ 79,00" },
+  { name: "Painel Mod APK — PERMANENTE",  icon: "📦", now: "R$ 150,00" },
+  { name: "Proxy Menu Android",    icon: "🌐", now: "R$ --,--" },
+  { name: "HS Proxy Android",      icon: "🎯", now: "R$ --,--" },
 ];
 
 const iphoneProducts = [
-  { name: "Painel iOS Drip", slug: "painel-ios-drip", icon: "💧" },
-  { name: "Painel iOS Safe", slug: "painel-ios-safe", icon: "🛡️" },
-  { name: "HS iOS External", slug: "hs-ios-external", icon: "🔗" },
-  { name: "HS Proxy iOS", slug: "hs-proxy-ios", icon: "📱" },
+  { name: "Painel iOS Drip",    icon: "💧", now: "R$ --,--" },
+  { name: "Painel iOS Safe",    icon: "🛡️", now: "R$ --,--" },
+  { name: "HS iOS External",    icon: "🔗", now: "R$ --,--" },
+  { name: "HS Proxy iOS",       icon: "📱", now: "R$ --,--" },
 ];
 
 function renderProducts(arr, containerId) {
@@ -593,7 +600,7 @@ function renderProducts(arr, containerId) {
         <div class="product-body">
           <div class="product-name">${p.name}</div>
           <div class="product-price">
-            <span class="price-now">R$ --,--</span>
+            <span class="price-now">${p.now}</span>
           </div>
           <div class="price-pix">À vista no Pix</div>
           <button class="btn-buy">Comprar agora</button>
