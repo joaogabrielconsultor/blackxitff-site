@@ -562,9 +562,42 @@ footer p { font-size: 12px; color: var(--fg-muted); }
   <div class="products" id="grid-iphone"></div>
 </div>
 
+<!-- MODAL PIX -->
+<div id="pix-modal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.75);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:16px;">
+  <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;max-width:400px;width:100%;padding:28px 24px;position:relative;box-shadow:0 0 40px var(--blue-glow);">
+    <button onclick="closePix()" style="position:absolute;top:14px;right:14px;background:none;border:none;color:var(--fg-muted);font-size:22px;cursor:pointer;line-height:1;">✕</button>
+    <div style="text-align:center;margin-bottom:20px;">
+      <div style="font-size:40px;margin-bottom:8px;">💸</div>
+      <div style="font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--blue);letter-spacing:.5px;">Pagamento via Pix</div>
+      <div id="pix-product-name" style="color:var(--fg-muted);font-size:13px;margin-top:4px;"></div>
+    </div>
+    <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:16px;text-align:center;">
+      <div style="font-size:12px;color:var(--fg-muted);margin-bottom:4px;">Valor a pagar</div>
+      <div id="pix-value" style="font-family:var(--font-display);font-size:32px;font-weight:700;color:var(--green);"></div>
+      <div style="font-size:11px;color:var(--fg-muted);margin-top:4px;">à vista no Pix ✓</div>
+    </div>
+    <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:14px;">
+      <div style="font-size:12px;color:var(--fg-muted);margin-bottom:6px;">Chave Pix (E-mail)</div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <code id="pix-key" style="flex:1;font-size:14px;color:var(--fg);word-break:break-all;">joaogabrielsdes5@gmail.com</code>
+        <button onclick="copyPix()" id="btn-copy" style="background:var(--blue);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;transition:background .2s;">Copiar</button>
+      </div>
+    </div>
+    <div style="background:rgba(0,168,255,.07);border:1px solid rgba(0,168,255,.2);border-radius:10px;padding:12px;font-size:12px;color:var(--fg-muted);line-height:1.6;">
+      <strong style="color:var(--blue);">📋 Instruções:</strong><br>
+      1. Copie a chave Pix acima<br>
+      2. Abra seu banco e faça o Pix com o valor exato<br>
+      3. Envie o comprovante no suporte para liberar o acesso
+    </div>
+    <a href="https://wa.me/55" target="_blank" id="pix-suporte" style="display:block;margin-top:14px;background:linear-gradient(135deg,#00e676,#00b35a);color:#000;text-align:center;padding:12px;border-radius:10px;font-weight:700;font-size:14px;text-decoration:none;">
+      📲 Enviar comprovante no Suporte
+    </a>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 Black XIT FF · Todos os direitos reservados</p>
+  <p>© 2026 Zoom Cheats · Todos os direitos reservados</p>
 </footer>
 
 <script>
@@ -606,24 +639,64 @@ const iphoneProducts = [
   { name: "HS Proxy iOS — 30 DIAS", icon: "📱", now: "R$ 83,00" },
 ];
 
+const PIX_KEY = 'joaogabrielsdes5@gmail.com';
+
+function openPix(name, value) {
+  document.getElementById('pix-product-name').textContent = name;
+  document.getElementById('pix-value').textContent = value;
+  document.getElementById('pix-key').textContent = PIX_KEY;
+  const modal = document.getElementById('pix-modal');
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function closePix() {
+  document.getElementById('pix-modal').style.display = 'none';
+  document.body.style.overflow = '';
+  const btn = document.getElementById('btn-copy');
+  btn.textContent = 'Copiar';
+  btn.style.background = 'var(--blue)';
+}
+
+function copyPix() {
+  navigator.clipboard.writeText(PIX_KEY).then(() => {
+    const btn = document.getElementById('btn-copy');
+    btn.textContent = '✓ Copiado!';
+    btn.style.background = 'var(--green)';
+    btn.style.color = '#000';
+    setTimeout(() => {
+      btn.textContent = 'Copiar';
+      btn.style.background = 'var(--blue)';
+      btn.style.color = '#fff';
+    }, 2500);
+  });
+}
+
+// Fecha modal ao clicar fora
+document.getElementById('pix-modal').addEventListener('click', function(e) {
+  if (e.target === this) closePix();
+});
+
 function renderProducts(arr, containerId) {
   const grid = document.getElementById(containerId);
   arr.forEach(p => {
-    grid.insertAdjacentHTML('beforeend', `
-      <div class="product-card">
-        <div class="product-thumb">
-          <span class="thumb-icon">${p.icon}</span>
-        </div>
-        <div class="product-body">
-          <div class="product-name">${p.name}</div>
-          <div class="product-price">
-            <span class="price-now">${p.now}</span>
-          </div>
-          <div class="price-pix">À vista no Pix</div>
-          <button class="btn-buy">Comprar agora</button>
-        </div>
+    const card = document.createElement('div');
+    card.className = 'product-card';
+    card.innerHTML = `
+      <div class="product-thumb">
+        <span class="thumb-icon">${p.icon}</span>
       </div>
-    `);
+      <div class="product-body">
+        <div class="product-name">${p.name}</div>
+        <div class="product-price">
+          <span class="price-now">${p.now}</span>
+        </div>
+        <div class="price-pix">À vista no Pix</div>
+        <button class="btn-buy">Comprar agora</button>
+      </div>
+    `;
+    card.querySelector('.btn-buy').addEventListener('click', () => openPix(p.name, p.now));
+    grid.appendChild(card);
   });
 }
 
