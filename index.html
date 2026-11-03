@@ -544,62 +544,65 @@ footer p { font-size: 12px; color: var(--fg-muted); }
     <div class="cat-card">
       <div class="cat-icon">🤖</div>
       <div class="cat-name">Android</div>
-      <div class="cat-count">28 painéis</div>
+      <div class="cat-count">4 painéis</div>
     </div>
     <div class="cat-card">
       <div class="cat-icon">📱</div>
       <div class="cat-name">iPhone</div>
-      <div class="cat-count">12 painéis</div>
-    </div>
-    <div class="cat-card">
-      <div class="cat-icon">🎁</div>
-      <div class="cat-name">Packs FF</div>
-      <div class="cat-count">8 packs</div>
+      <div class="cat-count">4 painéis</div>
     </div>
   </div>
 
-  <!-- PRODUCTS -->
-  <div class="section-title">Destaques — Android</div>
-  <div class="products" id="grid"></div>
+  <!-- PRODUCTS ANDROID -->
+  <div class="section-title">Android</div>
+  <div class="products" id="grid-android"></div>
+
+  <!-- PRODUCTS IPHONE -->
+  <div class="section-title" style="margin-top:2rem">iPhone</div>
+  <div class="products" id="grid-iphone"></div>
 </div>
 
 <!-- FOOTER -->
 <footer>
   <p>© 2026 Black XIT FF · Todos os direitos reservados</p>
-  <a href="https://www.shopee.com.br" target="_blank" class="shopee-link">🛍️ Shopee Oficial →</a>
 </footer>
 
 <script>
-const products = [
-  { name: "PROXY REMOTE FF XIT VIA INTERNET 🛜 | iOS & ANDROID | 100% HS – LANÇAMENTO!", icon: "🌐", was: "R$ 89,90", now: "R$ 24,99", off: "72%" },
-  { name: "PROXY MENU XIT VIA PROXY ANDROID INJETÁVEL 100% HS 100% ANTIBAN", icon: "💉", was: "R$ 100,00", now: "R$ 24,99", off: "75%" },
-  { name: "PAINEL FFH4X URIEL XITER 100% HS PERMANENTE PARA TODOS OS ANDROIDS", icon: "🎯", was: "R$ 50,00", now: "R$ 24,99", off: "50%" },
-  { name: "PAINEL GARENA MENU XIT FFH4X FREE FIRE ATUALIZADO 100% HS", icon: "🔥", was: "R$ 50,00", now: "R$ 24,99", off: "50%" },
-  { name: "PAINEL NETFLIX NOVA ATUALIZAÇÃO ANDROID PERMANENTE – AIMBOT LEGIT + NORECOIL", icon: "🎬", was: "R$ 50,00", now: "R$ 24,99", off: "50%" },
-  { name: "PAINEL FREESTYLE FFH4X 100% HS ANDROID 2026 PARA TODOS OS ANDROIDS", icon: "⚡", was: "R$ 50,00", now: "R$ 24,99", off: "50%" },
-  { name: "PAINEL DARK AURA ATUALIZADO PERMANENTE 100% HS PARA TODOS OS ANDROIDS", icon: "🌑", was: "R$ 50,00", now: "R$ 24,99", off: "50%" },
-  { name: "GOLD EXTREME 100% HS ANDROID PERMANENTE PARA TODOS OS ANDROIDS", icon: "👑", was: "R$ 50,00", now: "R$ 24,99", off: "50%" },
-  { name: "PAINEL FACEBOOK ANDROID ATUALIZADO 🔓 100% HS ANTIBAN | TODOS OS ANDROID", icon: "🔓", was: "R$ 50,00", now: "R$ 24,99", off: "50%" },
+const androidProducts = [
+  { name: "Painel Android", slug: "painel-android", icon: "🤖" },
+  { name: "Painel Mod APK", slug: "painel-mod-apk", icon: "📦" },
+  { name: "Proxy Menu Android", slug: "proxy-menu-android", icon: "🌐" },
+  { name: "HS Proxy Android", slug: "hs-proxy-android", icon: "🎯" },
 ];
 
-const grid = document.getElementById('grid');
-products.forEach(p => {
-  grid.insertAdjacentHTML('beforeend', `
-    <div class="product-card">
-      <div class="product-thumb">
-        <span class="thumb-icon">${p.icon}</span>
-        <span class="badge-off">-${p.off}</span>
-      </div>
-      <div class="product-body">
-        <div class="product-name">${p.name}</div>
-        <div class="product-price">
-          <span class="price-now">${p.now}</span>
-          <span class="price-was">${p.was}</span>
+const iphoneProducts = [
+  { name: "Painel iOS Drip", slug: "painel-ios-drip", icon: "💧" },
+  { name: "Painel iOS Safe", slug: "painel-ios-safe", icon: "🛡️" },
+  { name: "HS iOS External", slug: "hs-ios-external", icon: "🔗" },
+  { name: "HS Proxy iOS", slug: "hs-proxy-ios", icon: "📱" },
+];
+
+function renderProducts(arr, containerId) {
+  const grid = document.getElementById(containerId);
+  arr.forEach(p => {
+    grid.insertAdjacentHTML('beforeend', `
+      <div class="product-card">
+        <div class="product-thumb">
+          <span class="thumb-icon">${p.icon}</span>
         </div>
-        <div class="price-pix">À vista no Pix</div>
-        <button class="btn-buy">Comprar agora</button>
+        <div class="product-body">
+          <div class="product-name">${p.name}</div>
+          <div class="product-price">
+            <span class="price-now">R$ --,--</span>
+          </div>
+          <div class="price-pix">À vista no Pix</div>
+          <button class="btn-buy">Comprar agora</button>
+        </div>
       </div>
-    </div>
-  `);
-});
+    `);
+  });
+}
+
+renderProducts(androidProducts, 'grid-android');
+renderProducts(iphoneProducts, 'grid-iphone');
 </script>
