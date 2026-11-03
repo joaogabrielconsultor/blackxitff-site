@@ -440,104 +440,110 @@ nav .spacer{flex:1}
 ══════════════════════════════════════════ */
 .modal-overlay{
   display:none;position:fixed;inset:0;z-index:999;
-  background:rgba(0,0,0,.85);
-  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  align-items:center;justify-content:center;padding:16px;
+  background:rgba(0,4,14,.92);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  align-items:center;justify-content:center;padding:12px;
 }
 .modal-overlay.open{display:flex}
 
 .modal-box{
-  background:linear-gradient(160deg,#07122a,#030a1a);
-  border:1px solid rgba(0,170,255,.3);
-  border-radius:20px;max-width:440px;width:100%;
-  padding:32px 26px 26px;position:relative;
-  box-shadow:0 0 0 1px rgba(0,238,255,.06),0 0 80px rgba(0,170,255,.2),0 32px 80px rgba(0,0,0,.7);
-  animation:modal-pop .3s cubic-bezier(.34,1.5,.64,1);
-  max-height:90vh;overflow-y:auto;
+  background:#050e22;
+  border:1px solid rgba(0,170,255,.2);
+  border-radius:18px;max-width:380px;width:100%;
+  position:relative;overflow:hidden;
+  box-shadow:0 0 60px rgba(0,120,255,.12),0 24px 60px rgba(0,0,0,.8);
+  animation:modal-pop .28s cubic-bezier(.34,1.4,.64,1);
+  max-height:94vh;overflow-y:auto;
 }
-@keyframes modal-pop{from{transform:scale(.88) translateY(16px);opacity:0}}
+@keyframes modal-pop{from{transform:scale(.92) translateY(12px);opacity:0}}
 
-/* top accent line */
-.modal-box::before{
-  content:'';position:absolute;top:0;left:20%;right:20%;height:2px;
-  background:linear-gradient(90deg,transparent,var(--blue),var(--cyan),var(--blue),transparent);
-  border-radius:0 0 4px 4px;
+/* topo colorido */
+.modal-top-bar{
+  background:linear-gradient(135deg,#003580,#0057cc,#0099ff);
+  padding:20px 20px 24px;
+  position:relative;
+  display:flex;flex-direction:column;align-items:center;gap:4px;
 }
-
+.modal-top-bar::after{
+  content:'';position:absolute;bottom:-1px;left:0;right:0;height:32px;
+  background:#050e22;
+  clip-path:ellipse(55% 100% at 50% 100%);
+}
 .modal-close{
-  position:absolute;top:14px;right:14px;
-  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
-  color:var(--fg-muted);width:32px;height:32px;border-radius:50%;
-  font-size:16px;display:grid;place-items:center;
-  transition:border-color .2s,color .2s,background .2s;
+  position:absolute;top:12px;right:12px;
+  background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);
+  color:#fff;width:28px;height:28px;border-radius:50%;
+  font-size:13px;font-weight:700;display:grid;place-items:center;
+  transition:background .2s;z-index:1;
 }
-.modal-close:hover{border-color:var(--blue);color:var(--blue);background:rgba(0,168,255,.1)}
-
-/* header */
-.modal-header{text-align:center;margin-bottom:20px}
+.modal-close:hover{background:rgba(255,255,255,.28)}
 .modal-pix-icon{
-  width:56px;height:56px;border-radius:16px;
-  background:linear-gradient(135deg,var(--blue2),var(--blue));
-  display:grid;place-items:center;margin:0 auto 12px;
-  box-shadow:0 0 28px rgba(0,168,255,.4);font-size:26px;
+  width:48px;height:48px;border-radius:14px;
+  background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.25);
+  display:grid;place-items:center;margin-bottom:8px;
+  backdrop-filter:blur(4px);
 }
 .modal-title{
-  font-family:var(--font-d);font-size:18px;font-weight:700;
-  color:var(--fg);letter-spacing:.05em;
+  font-family:var(--font-d);font-size:16px;font-weight:700;
+  color:#fff;letter-spacing:.04em;
 }
 .modal-product{
-  font-size:12px;color:var(--fg-muted);margin-top:4px;
-  font-family:var(--font-h);font-weight:600;letter-spacing:.06em;
+  font-size:11px;color:rgba(255,255,255,.7);
+  font-family:var(--font-h);font-weight:600;letter-spacing:.08em;
   text-transform:uppercase;
 }
 
-/* value box */
-.modal-value-box{
-  background:linear-gradient(135deg,rgba(0,230,118,.08),rgba(0,230,118,.04));
-  border:1px solid rgba(0,230,118,.22);
-  border-radius:12px;padding:16px;text-align:center;margin-bottom:16px;
+/* body */
+.modal-body{padding:8px 18px 20px;display:flex;flex-direction:column;gap:12px}
+
+/* valor */
+.modal-value-row{
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(0,230,118,.06);border:1px solid rgba(0,230,118,.18);
+  border-radius:10px;padding:12px 16px;
 }
-.modal-value-label{font-size:10px;color:var(--fg-muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+.modal-value-left{display:flex;flex-direction:column;gap:2px}
+.modal-value-label{font-size:9px;color:var(--fg-muted);letter-spacing:.12em;text-transform:uppercase}
 .modal-value{
-  font-family:var(--font-d);font-size:38px;font-weight:700;
-  color:var(--green);text-shadow:0 0 24px var(--green-glow);
+  font-family:var(--font-d);font-size:26px;font-weight:700;
+  color:var(--green);text-shadow:0 0 18px rgba(0,230,118,.45);
   line-height:1;
 }
-.modal-pix-note{font-size:11px;color:rgba(0,230,118,.7);margin-top:6px}
+.modal-pix-badge{
+  font-size:10px;font-weight:700;letter-spacing:.06em;
+  background:rgba(0,230,118,.15);border:1px solid rgba(0,230,118,.3);
+  color:var(--green);border-radius:6px;padding:4px 10px;white-space:nowrap;
+}
 
-/* qr */
-.modal-qr-wrap{text-align:center;margin-bottom:16px}
-.modal-qr-label{
-  font-size:11px;color:var(--fg-muted);margin-bottom:10px;
-  letter-spacing:.05em;
+/* qr + copia lado a lado */
+.modal-pay-row{
+  display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;
 }
 .modal-qr{
-  display:inline-block;background:#fff;
-  border-radius:14px;padding:12px;
-  box-shadow:0 0 0 4px rgba(0,170,255,.12),0 0 30px rgba(0,168,255,.2);
+  background:#fff;border-radius:10px;padding:8px;
+  box-shadow:0 0 0 3px rgba(0,170,255,.1);
+  flex-shrink:0;
 }
-.modal-qr canvas,.modal-qr img{display:block;border-radius:6px}
+.modal-qr canvas,.modal-qr img{display:block;border-radius:4px}
 
-/* copia e cola */
-.modal-key-box{
-  background:rgba(0,170,255,.05);
-  border:1px solid rgba(0,170,255,.18);
-  border-radius:12px;padding:14px;margin-bottom:14px;
+.modal-copy-col{display:flex;flex-direction:column;gap:8px;min-width:0}
+.modal-copy-label{
+  font-size:9px;color:var(--fg-muted);letter-spacing:.1em;text-transform:uppercase;
 }
-.modal-key-label{font-size:10px;color:var(--fg-muted);margin-bottom:8px;letter-spacing:.08em;text-transform:uppercase}
-.modal-key-row{display:flex;align-items:flex-start;gap:10px}
-.modal-key-value{
-  flex:1;font-size:9.5px;color:var(--fg-muted);
-  word-break:break-all;font-family:monospace;line-height:1.5;
-  background:none;border:none;
+.modal-copy-code{
+  font-size:8.5px;color:var(--fg-muted);font-family:monospace;
+  line-height:1.55;word-break:break-all;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:6px;padding:8px;
 }
 .btn-copy{
-  flex-shrink:0;height:34px;padding:0 14px;
+  width:100%;height:34px;
   background:linear-gradient(135deg,var(--blue2),var(--blue));
   color:#fff;border:none;border-radius:7px;
   font-weight:700;font-size:12px;letter-spacing:.05em;
   transition:box-shadow .2s,transform .1s;
-  white-space:nowrap;
 }
 .btn-copy:hover{box-shadow:0 0 16px rgba(0,168,255,.45);transform:translateY(-1px)}
 .btn-copy.copied{background:linear-gradient(135deg,#00a855,var(--green));color:#000}
@@ -545,14 +551,14 @@ nav .spacer{flex:1}
 /* whatsapp */
 .btn-whatsapp{
   display:flex;align-items:center;justify-content:center;gap:9px;
-  width:100%;height:48px;
-  background:linear-gradient(135deg,#1da851,#25d366);
-  color:#fff;border:none;border-radius:12px;
-  font-family:var(--font-h);font-weight:700;font-size:15px;letter-spacing:.05em;
-  box-shadow:0 4px 24px rgba(37,211,102,.3);
+  width:100%;height:44px;
+  background:linear-gradient(135deg,#128c3e,#25d366);
+  color:#fff;border:none;border-radius:10px;
+  font-family:var(--font-h);font-weight:700;font-size:14px;letter-spacing:.05em;
+  box-shadow:0 4px 20px rgba(37,211,102,.25);
   transition:box-shadow .2s,transform .15s;
 }
-.btn-whatsapp:hover{box-shadow:0 4px 36px rgba(37,211,102,.5);transform:translateY(-1px)}
+.btn-whatsapp:hover{box-shadow:0 4px 28px rgba(37,211,102,.45);transform:translateY(-1px)}
 
 /* ══════════════════════════════════════════
    FOOTER
@@ -631,12 +637,17 @@ footer .copy{font-size:11px;color:rgba(106,150,187,.45)}
   .btn-details{height:26px;font-size:10px}
 
   /* modal */
-  .modal-box{padding:22px 14px 18px;border-radius:16px}
-  .modal-pix-icon{width:46px;height:46px;font-size:22px}
-  .modal-title{font-size:15px}
-  .modal-value{font-size:28px}
-  .modal-qr{padding:8px}
-  #modal-qr canvas,#modal-qr img{width:160px!important;height:160px!important}
+  .modal-top-bar{padding:16px 16px 22px}
+  .modal-pix-icon{width:40px;height:40px}
+  .modal-title{font-size:14px}
+  .modal-body{padding:6px 14px 16px;gap:10px}
+  .modal-value{font-size:22px}
+  .modal-pay-row{gap:10px}
+  .modal-qr{padding:6px}
+  #modal-qr canvas,#modal-qr img{width:110px!important;height:110px!important}
+  .modal-copy-code{font-size:7.5px;padding:6px}
+  .btn-copy{height:30px;font-size:11px}
+  .btn-whatsapp{height:40px;font-size:13px}
 
   /* desc modal */
   .desc-box{padding:22px 14px 18px}
@@ -686,9 +697,11 @@ footer .copy{font-size:11px;color:rgba(106,150,187,.45)}
     <p class="hero-sub">Painéis exclusivos para Free Fire com bypass completo. iOS e Android. Ativação imediata via Pix.</p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M3 3h1.5l.9 5m0 0l1.1 5h8l2-8H5.4z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="16.5" r="1.5" fill="currentColor"/><circle cx="14" cy="16.5" r="1.5" fill="currentColor"/></svg>
         Comprar Agora
       </button>
       <button class="btn-ghost" onclick="openWhats()">
+        <svg width="15" height="15" viewBox="0 0 18 18" fill="none"><path d="M9 1C4.6 1 1 4.6 1 9c0 1.4.37 2.72 1.01 3.87L1 17l4.22-.99A8 8 0 0 0 9 17c4.4 0 8-3.6 8-8S13.4 1 9 1z" fill="currentColor" opacity=".7"/><path d="M6.5 7.2c0-.3.25-.55.55-.55h.05c.3 0 .55.25.55.55v.55c0 .34-.14.65-.38.87L6.9 9.4c.32.66.93 1.27 1.54 1.57l.58-.57c.22-.2.52-.32.84-.32h.06c.3 0 .55.25.55.55v1.1c0 .3-.25.55-.55.55A5 5 0 0 1 4.9 7.75c0-.3.25-.55.55-.55H6.5z" fill="currentColor"/></svg>
         Falar no Suporte
       </button>
     </div>
@@ -716,21 +729,21 @@ footer .copy{font-size:11px;color:rgba(106,150,187,.45)}
 <!-- TICKER -->
 <div class="ticker-wrap" aria-hidden="true">
   <div class="ticker-inner">
-    <span class="ticker-item">Ativação Imediata <span class="ticker-sep">|</span></span>
-    <span class="ticker-item">100% Headshot <span class="ticker-sep">|</span></span>
-    <span class="ticker-item">100% Antiban <span class="ticker-sep">|</span></span>
-    <span class="ticker-item">Pix na hora <span class="ticker-sep">|</span></span>
-    <span class="ticker-item">iOS e Android <span class="ticker-sep">|</span></span>
-    <span class="ticker-item">Bypass total <span class="ticker-sep">|</span></span>
-    <span class="ticker-item">Suporte WhatsApp <span class="ticker-sep">|</span></span>
+    <span class="ticker-item"><svg viewBox="0 0 16 16" fill="none" width="12" height="12"><path d="M9 2L3 9h5l-1 5 6-7H8l1-5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg> Ativação Imediata <span class="ticker-sep">|</span></span>
+    <span class="ticker-item"><svg viewBox="0 0 16 16" fill="none" width="12" height="12"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.3"/><circle cx="8" cy="8" r="2.5" stroke="currentColor" stroke-width="1.3"/><circle cx="8" cy="8" r=".8" fill="currentColor"/></svg> 100% Headshot <span class="ticker-sep">|</span></span>
+    <span class="ticker-item"><svg viewBox="0 0 16 16" fill="none" width="12" height="12"><path d="M8 2l5 2v3c0 3.5-2.2 6-5 7C5.2 13 3 10.5 3 7V4l5-2z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M6 8l1.5 1.5L10 6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg> 100% Antiban <span class="ticker-sep">|</span></span>
+    <span class="ticker-item"><svg viewBox="0 0 16 16" fill="none" width="12" height="12"><rect x="1.5" y="4" width="13" height="9" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M1.5 7h13" stroke="currentColor" stroke-width="1.3"/><path d="M4.5 10.5h3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg> Pix na hora <span class="ticker-sep">|</span></span>
+    <span class="ticker-item"><svg viewBox="0 0 16 16" fill="none" width="12" height="12"><rect x="4" y="1" width="8" height="14" rx="2" stroke="currentColor" stroke-width="1.3"/><circle cx="8" cy="12" r=".8" fill="currentColor"/></svg> iOS e Android <span class="ticker-sep">|</span></span>
+    <span class="ticker-item"><svg viewBox="0 0 16 16" fill="none" width="12" height="12"><path d="M2 8h12M8 2l6 6-6 6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Bypass total <span class="ticker-sep">|</span></span>
+    <span class="ticker-item"><svg viewBox="0 0 16 16" fill="none" width="12" height="12"><path d="M8 1C4.7 1 2 3.7 2 7c0 1 .27 2 .73 2.8L2 15l5.3-.71A6 6 0 1 0 8 1z" stroke="currentColor" stroke-width="1.3"/></svg> Suporte WhatsApp <span class="ticker-sep">|</span></span>
     <!-- duplicate for seamless loop -->
-    <span class="ticker-item">Ativação Imediata <span class="ticker-sep">|</span></span>
-    <span class="ticker-item">100% Headshot <span class="ticker-sep">|</span></span>
-    <span class="ticker-item">100% Antiban <span class="ticker-sep">|</span></span>
-    <span class="ticker-item">Pix na hora <span class="ticker-sep">|</span></span>
-    <span class="ticker-item">iOS e Android <span class="ticker-sep">|</span></span>
-    <span class="ticker-item">Bypass total <span class="ticker-sep">|</span></span>
-    <span class="ticker-item">Suporte WhatsApp <span class="ticker-sep">|</span></span>
+    <span class="ticker-item"><svg viewBox="0 0 16 16" fill="none" width="12" height="12"><path d="M9 2L3 9h5l-1 5 6-7H8l1-5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg> Ativação Imediata <span class="ticker-sep">|</span></span>
+    <span class="ticker-item"><svg viewBox="0 0 16 16" fill="none" width="12" height="12"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.3"/><circle cx="8" cy="8" r="2.5" stroke="currentColor" stroke-width="1.3"/><circle cx="8" cy="8" r=".8" fill="currentColor"/></svg> 100% Headshot <span class="ticker-sep">|</span></span>
+    <span class="ticker-item"><svg viewBox="0 0 16 16" fill="none" width="12" height="12"><path d="M8 2l5 2v3c0 3.5-2.2 6-5 7C5.2 13 3 10.5 3 7V4l5-2z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M6 8l1.5 1.5L10 6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg> 100% Antiban <span class="ticker-sep">|</span></span>
+    <span class="ticker-item"><svg viewBox="0 0 16 16" fill="none" width="12" height="12"><rect x="1.5" y="4" width="13" height="9" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M1.5 7h13" stroke="currentColor" stroke-width="1.3"/><path d="M4.5 10.5h3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg> Pix na hora <span class="ticker-sep">|</span></span>
+    <span class="ticker-item"><svg viewBox="0 0 16 16" fill="none" width="12" height="12"><rect x="4" y="1" width="8" height="14" rx="2" stroke="currentColor" stroke-width="1.3"/><circle cx="8" cy="12" r=".8" fill="currentColor"/></svg> iOS e Android <span class="ticker-sep">|</span></span>
+    <span class="ticker-item"><svg viewBox="0 0 16 16" fill="none" width="12" height="12"><path d="M2 8h12M8 2l6 6-6 6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Bypass total <span class="ticker-sep">|</span></span>
+    <span class="ticker-item"><svg viewBox="0 0 16 16" fill="none" width="12" height="12"><path d="M8 1C4.7 1 2 3.7 2 7c0 1 .27 2 .73 2.8L2 15l5.3-.71A6 6 0 1 0 8 1z" stroke="currentColor" stroke-width="1.3"/></svg> Suporte WhatsApp <span class="ticker-sep">|</span></span>
   </div>
 </div>
 
@@ -765,9 +778,11 @@ footer .copy{font-size:11px;color:rgba(106,150,187,.45)}
 
   <div class="tabs" role="tablist">
     <button class="tab-btn active" data-tab="android" onclick="switchTab('android',this)" role="tab">
+      <svg viewBox="0 0 18 18" fill="none" width="15" height="15"><path d="M3 13V8a6 6 0 0 1 12 0v5" stroke="currentColor" stroke-width="1.5"/><rect x="1" y="10" width="3" height="5" rx="1.2" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="10" width="3" height="5" rx="1.2" stroke="currentColor" stroke-width="1.5"/><circle cx="6.5" cy="8" r=".9" fill="currentColor"/><circle cx="11.5" cy="8" r=".9" fill="currentColor"/></svg>
       Android <span class="tab-count" id="count-android"></span>
     </button>
     <button class="tab-btn" data-tab="iphone" onclick="switchTab('iphone',this)" role="tab">
+      <svg viewBox="0 0 18 18" fill="none" width="15" height="15"><rect x="4" y="1" width="10" height="16" rx="2.5" stroke="currentColor" stroke-width="1.5"/><circle cx="9" cy="14.5" r="1" fill="currentColor"/><path d="M7 3.5h4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
       iPhone <span class="tab-count" id="count-iphone"></span>
     </button>
   </div>
@@ -789,37 +804,46 @@ footer .copy{font-size:11px;color:rgba(106,150,187,.45)}
 <!-- PIX MODAL -->
 <div class="modal-overlay" id="pix-modal" onclick="handleModalClick(event)">
   <div class="modal-box" role="dialog" aria-modal="true">
-    <button class="modal-close" onclick="closePix()" aria-label="Fechar">X</button>
 
-    <div class="modal-header">
-      <div class="modal-pix-icon"><svg viewBox="0 0 24 24" fill="none" width="28" height="28"><rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M2 9h20" stroke="currentColor" stroke-width="1.8"/><path d="M6 14h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+    <div class="modal-top-bar">
+      <button class="modal-close" onclick="closePix()" aria-label="Fechar">
+        <svg viewBox="0 0 12 12" fill="none" width="12" height="12"><path d="M1 1l10 10M11 1L1 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <div class="modal-pix-icon">
+        <svg viewBox="0 0 28 28" fill="none" width="26" height="26">
+          <path d="M7 7l4.5 4.5m0 0l4.5-4.5m-4.5 4.5l-4.5 4.5m4.5-4.5l4.5 4.5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+          <rect x="2" y="2" width="24" height="24" rx="6" stroke="rgba(255,255,255,.4)" stroke-width="1.5"/>
+        </svg>
+      </div>
       <div class="modal-title">Pagamento via Pix</div>
       <div class="modal-product" id="modal-product-name"></div>
     </div>
 
-    <div class="modal-value-box">
-      <div class="modal-value-label">Valor a pagar</div>
-      <div class="modal-value" id="modal-value"></div>
-      <div class="modal-pix-note">Pix a vista — aprovação instantânea</div>
-    </div>
+    <div class="modal-body">
 
-    <div class="modal-qr-wrap">
-      <div class="modal-qr-label">Escaneie com o app do banco</div>
-      <div id="modal-qr" class="modal-qr"></div>
-    </div>
-
-    <div class="modal-key-box">
-      <div class="modal-key-label">Pix Copia e Cola</div>
-      <div class="modal-key-row">
-        <span class="modal-key-value" id="modal-pix-code"></span>
-        <button class="btn-copy" id="btn-copy-pix" onclick="copyPixCode()">Copiar</button>
+      <div class="modal-value-row">
+        <div class="modal-value-left">
+          <span class="modal-value-label">Total a pagar</span>
+          <span class="modal-value" id="modal-value"></span>
+        </div>
+        <span class="modal-pix-badge">Pix instantaneo</span>
       </div>
-    </div>
 
-    <button class="btn-whatsapp" onclick="openWhatsComprova()">
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1C4.6 1 1 4.6 1 9c0 1.4.37 2.72 1.01 3.87L1 17l4.22-.99A8 8 0 0 0 9 17c4.4 0 8-3.6 8-8S13.4 1 9 1z" fill="currentColor" opacity=".9"/><path d="M6.5 7c0-.33.27-.6.6-.6h.02c.33 0 .6.27.6.6v.6c0 .37-.16.7-.42.93L6.9 9.3c.36.73 1.02 1.4 1.7 1.74l.64-.63c.23-.22.56-.35.9-.35h.06c.33 0 .6.27.6.6v1.2c0 .33-.27.6-.6.6A5.4 5.4 0 0 1 4.8 7.6c0-.33.27-.6.6-.6H6.5z" fill="#000" opacity=".85"/></svg>
-      Enviar Comprovante
-    </button>
+      <div class="modal-pay-row">
+        <div id="modal-qr" class="modal-qr"></div>
+        <div class="modal-copy-col">
+          <div class="modal-copy-label">Pix Copia e Cola</div>
+          <div class="modal-copy-code" id="modal-pix-code"></div>
+          <button class="btn-copy" id="btn-copy-pix" onclick="copyPixCode()">Copiar codigo</button>
+        </div>
+      </div>
+
+      <button class="btn-whatsapp" onclick="openWhatsComprova()">
+        <svg width="17" height="17" viewBox="0 0 18 18" fill="none"><path d="M9 1C4.6 1 1 4.6 1 9c0 1.4.37 2.72 1.01 3.87L1 17l4.22-.99A8 8 0 0 0 9 17c4.4 0 8-3.6 8-8S13.4 1 9 1z" fill="currentColor" opacity=".9"/><path d="M6.5 7c0-.33.27-.6.6-.6h.02c.33 0 .6.27.6.6v.6c0 .37-.16.7-.42.93L6.9 9.3c.36.73 1.02 1.4 1.7 1.74l.64-.63c.23-.22.56-.35.9-.35h.06c.33 0 .6.27.6.6v1.2c0 .33-.27.6-.6.6A5.4 5.4 0 0 1 4.8 7.6c0-.33.27-.6.6-.6H6.5z" fill="#000" opacity=".85"/></svg>
+        Enviar Comprovante
+      </button>
+
+    </div>
   </div>
 </div>
 
@@ -1018,7 +1042,7 @@ function buildPanel(groups, panelId) {
         wifi:`<svg viewBox="0 0 24 24" fill="none" width="36" height="36"><path d="M5 12.5A9.96 9.96 0 0 1 12 10c2.8 0 5.3 1.1 7 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M8 15.5A5.5 5.5 0 0 1 12 14a5.5 5.5 0 0 1 4 1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="19" r="1.5" fill="currentColor"/><path d="M2 9A14 14 0 0 1 12 6c3.8 0 7.3 1.5 9.8 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>`,
       };
       const imgHtml = g.img
-        ? `<img src="${g.img}" alt="${p.name}" loading="lazy">`
+        ? `<img src="${g.img}" alt="${p.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\"thumb-icon\\">' + (ICONS[p.icon]||'') + '</div>'">`
         : `<div class="thumb-icon">${ICONS[p.icon] || ''}</div>`;
       card.innerHTML = `
         <div class="product-thumb">
@@ -1173,7 +1197,7 @@ function openPix(name, duration, price) {
   const qrEl = document.getElementById('modal-qr');
   qrEl.innerHTML = '';
   new QRCode(qrEl, {
-    text: payload, width: 190, height: 190,
+    text: payload, width: 150, height: 150,
     colorDark:'#000000', colorLight:'#ffffff',
     correctLevel: QRCode.CorrectLevel.M
   });
