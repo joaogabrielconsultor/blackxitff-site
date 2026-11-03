@@ -1,14 +1,13 @@
-<title>Zoom Cheats</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zoom Cheats — Painéis Free Fire iOS & Android</title>
+<meta name="description" content="Zoom Cheats: painéis para Free Fire com 100% headshot. iOS e Android. Pagamento via Pix.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
-
 <style>
-/* ─── TOKEN SYSTEM ─────────────────────────────────────────────────────────────
-   Dark navy base, electric blue neon — Zoom Cheats aesthetic
-   Layout: full-bleed hero → category tabs → product grid (3-col → 1-col mobile)
-────────────────────────────────────────────────────────────────────────────────*/
 :root {
   --bg:        #03060f;
   --surface:   #060d1e;
@@ -19,206 +18,187 @@
   --blue-glow: rgba(0,168,255,.35);
   --fg:        #e8f4ff;
   --fg-muted:  #7ea8cc;
-  --red:       #ff1e1e;
   --green:     #00e676;
-
-  --font-display: 'Rajdhani', sans-serif;
-  --font-body:    'Inter', sans-serif;
-
+  --font-d:    'Rajdhani', sans-serif;
+  --font-b:    'Inter', sans-serif;
   color-scheme: dark;
 }
 
-/* single dark theme by design — no light variant */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; }
+html { scroll-behavior: smooth; }
 
 body {
   background: var(--bg);
   color: var(--fg);
-  font-family: var(--font-body);
+  font-family: var(--font-b);
   font-size: 15px;
   line-height: 1.55;
-  min-height: 100%;
-  padding-left: max(0px, env(safe-area-inset-left, 0px));
-  padding-right: max(0px, env(safe-area-inset-right, 0px));
+  overflow-x: hidden;
 }
 
-img { max-width: 100%; }
+img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
 
-/* ─── NAV ──────────────────────────────────────────────────────────────────── */
+/* ── NAV ──────────────────────────────────────────────── */
 nav {
   position: sticky;
-  top: env(safe-area-inset-top, 0px);
-  z-index: 100;
-  background: rgba(3,6,15,.85);
-  backdrop-filter: blur(12px);
+  top: 0;
+  z-index: 200;
+  background: rgba(3,6,15,.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
   gap: 12px;
-  padding-block: 12px;
-  padding-left: max(16px, env(safe-area-inset-left, 0px));
-  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding: 10px 20px;
 }
 
 .logo {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-family: var(--font-display);
+  font-family: var(--font-d);
   font-size: 20px;
   font-weight: 700;
   letter-spacing: .04em;
-  color: var(--fg);
   flex-shrink: 0;
 }
-
-.logo-icon {
-  width: 34px;
-  height: 34px;
-  border: 1.5px solid var(--blue);
-  border-radius: 6px;
-  display: grid;
-  place-items: center;
-  box-shadow: 0 0 10px var(--blue-glow);
-}
-
-.logo-icon svg { display: block; }
-
-.logo-badge {
-  font-size: 10px;
-  background: var(--blue);
-  color: #000;
-  padding: 1px 5px;
-  border-radius: 3px;
-  font-weight: 700;
-  letter-spacing: .06em;
-}
+.logo img { height: 36px; width: auto; object-fit: contain; }
+.logo-text { display: none; }
+.logo img[src="logo.png"]:not([error]) + .logo-text { display: block; }
 
 nav .spacer { flex: 1; }
 
-.nav-icons {
+.nav-support {
   display: flex;
   align-items: center;
-  gap: 8px;
-}
-
-.nav-btn {
-  width: 36px;
-  height: 36px;
+  gap: 6px;
+  height: 34px;
+  padding: 0 14px;
   border: 1px solid var(--border);
   border-radius: 6px;
-  background: var(--surface);
+  font-size: 13px;
+  font-weight: 600;
   color: var(--fg-muted);
-  display: grid;
-  place-items: center;
-  cursor: pointer;
+  background: none;
   transition: border-color .2s, color .2s;
 }
-.nav-btn:hover { border-color: var(--blue); color: var(--blue); }
+.nav-support:hover { border-color: var(--blue); color: var(--blue); }
 
-.cart-btn {
+.nav-pix-btn {
   display: flex;
   align-items: center;
   gap: 7px;
-  height: 36px;
-  padding: 0 14px;
+  height: 34px;
+  padding: 0 16px;
   background: var(--blue);
   color: #000;
   border: none;
   border-radius: 6px;
-  font-family: var(--font-display);
+  font-family: var(--font-d);
   font-weight: 700;
   font-size: 14px;
   letter-spacing: .04em;
-  cursor: pointer;
   box-shadow: 0 0 16px rgba(0,168,255,.4);
-  transition: box-shadow .2s;
+  transition: box-shadow .2s, transform .15s;
 }
-.cart-btn:hover { box-shadow: 0 0 24px rgba(0,168,255,.65); }
+.nav-pix-btn:hover { box-shadow: 0 0 28px rgba(0,168,255,.7); transform: translateY(-1px); }
 
-/* ─── HERO ─────────────────────────────────────────────────────────────────── */
+/* ── HERO ─────────────────────────────────────────────── */
 .hero {
   position: relative;
   overflow: hidden;
-  padding-block: 72px 56px;
-  padding-left: max(16px, env(safe-area-inset-left, 0px));
-  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding: 64px 20px 52px;
   text-align: center;
 }
 
-/* animated grid lines */
-.hero::before {
-  content: '';
+.hero-grid {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(0,168,255,.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,168,255,.06) 1px, transparent 1px);
+    linear-gradient(rgba(0,168,255,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,168,255,.05) 1px, transparent 1px);
   background-size: 48px 48px;
-  animation: grid-drift 20s linear infinite;
+  animation: grid-move 24s linear infinite;
 }
-
-.hero::after {
-  content: '';
+.hero-glow {
   position: absolute;
-  inset: -50% 0 -50%;
-  background: radial-gradient(ellipse 60% 40% at 50% 50%, rgba(0,100,200,.25) 0%, transparent 70%);
-  animation: pulse-glow 4s ease-in-out infinite alternate;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 50% at 50% 50%, rgba(0,80,200,.22) 0%, transparent 70%);
+  animation: glow-pulse 5s ease-in-out infinite alternate;
 }
-
-@keyframes grid-drift { to { background-position: 0 48px; } }
-@keyframes pulse-glow { from { opacity: .6; } to { opacity: 1; } }
+@keyframes grid-move { to { background-position: 0 48px; } }
+@keyframes glow-pulse { from { opacity: .5; } to { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) {
-  .hero::before, .hero::after { animation: none; }
+  .hero-grid, .hero-glow { animation: none; }
 }
 
-.hero-inner { position: relative; z-index: 1; max-width: 680px; margin-inline: auto; }
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  margin: 0 auto;
+}
 
-.hero-tag {
+.hero-badge {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: .12em;
   text-transform: uppercase;
   color: var(--blue);
-  border: 1px solid rgba(0,168,255,.3);
+  border: 1px solid rgba(0,168,255,.28);
   border-radius: 20px;
-  padding: 4px 12px;
-  margin-bottom: 24px;
+  padding: 5px 14px;
+  margin-bottom: 28px;
 }
-.hero-tag .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 6px var(--blue); animation: blink 1.4s step-end infinite; }
+.live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 0 0 8px var(--blue);
+  animation: blink 1.4s step-end infinite;
+}
 @keyframes blink { 50% { opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { .hero-tag .dot { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .live-dot { animation: none; } }
 
 .hero h1 {
-  font-family: var(--font-display);
-  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  font-family: var(--font-d);
+  font-size: clamp(2.4rem, 7vw, 4rem);
   font-weight: 700;
-  line-height: 1.1;
-  text-wrap: balance;
+  line-height: 1.05;
   color: var(--fg);
-  text-shadow: 0 0 30px rgba(0,168,255,.3);
-  margin-bottom: 18px;
+  margin-bottom: 16px;
+  text-shadow: 0 0 40px rgba(0,168,255,.25);
 }
-
-.hero h1 span {
+.hero h1 em {
+  font-style: normal;
   color: var(--blue);
-  text-shadow: 0 0 20px rgba(0,168,255,.7), 0 0 40px rgba(0,168,255,.3);
+  text-shadow: 0 0 24px rgba(0,168,255,.8), 0 0 48px rgba(0,168,255,.3);
 }
 
-.hero p {
+.hero-sub {
   font-size: 15px;
   color: var(--fg-muted);
-  max-width: 520px;
-  margin-inline: auto;
-  margin-bottom: 32px;
+  max-width: 480px;
+  margin: 0 auto 36px;
 }
 
-.hero-cta {
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -226,128 +206,177 @@ nav .spacer { flex: 1; }
   padding: 0 28px;
   background: var(--blue);
   color: #000;
-  font-family: var(--font-display);
+  font-family: var(--font-d);
   font-weight: 700;
   font-size: 15px;
   letter-spacing: .06em;
   border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  box-shadow: 0 0 24px rgba(0,168,255,.5), 0 0 48px rgba(0,168,255,.2);
+  border-radius: 7px;
+  box-shadow: 0 0 28px rgba(0,168,255,.5), 0 0 60px rgba(0,168,255,.15);
   transition: box-shadow .2s, transform .15s;
 }
-.hero-cta:hover { box-shadow: 0 0 32px rgba(0,168,255,.7), 0 0 64px rgba(0,168,255,.3); transform: translateY(-1px); }
+.btn-primary:hover { box-shadow: 0 0 40px rgba(0,168,255,.7); transform: translateY(-2px); }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 24px;
+  background: none;
+  color: var(--fg-muted);
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  transition: border-color .2s, color .2s;
+}
+.btn-ghost:hover { border-color: var(--blue); color: var(--blue); }
 
 .hero-stats {
   display: flex;
   justify-content: center;
-  gap: 40px;
-  margin-top: 48px;
+  gap: 48px;
+  margin-top: 52px;
   padding-top: 32px;
   border-top: 1px solid var(--border);
   flex-wrap: wrap;
 }
 .stat-num {
-  font-family: var(--font-display);
-  font-size: 1.8rem;
+  font-family: var(--font-d);
+  font-size: 1.9rem;
   font-weight: 700;
   color: var(--blue);
   text-shadow: 0 0 16px var(--blue-glow);
-  font-variant-numeric: tabular-nums;
 }
-.stat-label { font-size: 12px; color: var(--fg-muted); margin-top: 2px; }
+.stat-label { font-size: 12px; color: var(--fg-muted); margin-top: 3px; }
 
-/* ─── CATEGORIES ────────────────────────────────────────────────────────────── */
-.section-wrap {
-  padding-left: max(16px, env(safe-area-inset-left, 0px));
-  padding-right: max(16px, env(safe-area-inset-right, 0px));
-}
-
-.section-title {
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: .05em;
-  color: var(--fg-muted);
-  text-transform: uppercase;
-  margin-bottom: 16px;
-}
-
-.cats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-bottom: 40px;
-}
-
-.cat-card {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  border-radius: 8px;
+/* ── TRUST BAR ────────────────────────────────────────── */
+.trust-bar {
   background: var(--surface);
-  padding: 24px 16px 20px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 20px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg-muted);
+  white-space: nowrap;
+}
+.trust-item span { font-size: 16px; }
+
+/* ── TABS ─────────────────────────────────────────────── */
+.shop-section { max-width: 1100px; margin: 0 auto; padding: 44px 20px 60px; }
+
+.shop-heading {
+  font-family: var(--font-d);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--fg);
+  margin-bottom: 24px;
+}
+.shop-heading span { color: var(--blue); }
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tabs::-webkit-scrollbar { display: none; }
+
+.tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 18px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--fg-muted);
+  font-family: var(--font-d);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: .05em;
+  white-space: nowrap;
+  transition: color .2s, border-color .2s;
+  margin-bottom: -1px;
+}
+.tab-btn:hover { color: var(--fg); }
+.tab-btn.active { color: var(--blue); border-color: var(--blue); }
+.tab-count {
+  font-size: 11px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1px 6px;
+  color: var(--fg-muted);
+}
+.tab-btn.active .tab-count { background: rgba(0,168,255,.12); border-color: rgba(0,168,255,.3); color: var(--blue); }
+
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ── PRODUCT GROUPS ───────────────────────────────────── */
+.product-group { margin-bottom: 40px; }
+.group-label {
+  display: flex;
   align-items: center;
   gap: 10px;
-  cursor: pointer;
-  transition: border-color .2s, transform .15s;
-}
-.cat-card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 80% 60% at 50% 120%, rgba(0,168,255,.12) 0%, transparent 70%);
-  opacity: 0;
-  transition: opacity .2s;
-}
-.cat-card:hover { border-color: var(--blue); transform: translateY(-2px); }
-.cat-card:hover::after { opacity: 1; }
-
-.cat-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(0,168,255,.4);
-  display: grid;
-  place-items: center;
-  font-size: 22px;
-  background: var(--surface2);
-  box-shadow: 0 0 14px var(--blue-glow);
-}
-.cat-name {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 14px;
-  letter-spacing: .08em;
+  font-family: var(--font-d);
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: .1em;
   text-transform: uppercase;
-  color: var(--fg);
+  color: var(--fg-muted);
+  margin-bottom: 14px;
 }
-.cat-count { font-size: 12px; color: var(--fg-muted); }
+.group-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
 
-/* ─── PRODUCT GRID ─────────────────────────────────────────────────────────── */
-.products {
+/* ── PRODUCT CARDS ────────────────────────────────────── */
+.product-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
   gap: 12px;
-  margin-bottom: 40px;
 }
 
 .product-card {
-  border: 1px solid var(--border);
-  border-radius: 8px;
   background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: border-color .2s, transform .15s;
+  transition: border-color .2s, transform .15s, box-shadow .2s;
+  cursor: pointer;
 }
-.product-card:hover { border-color: rgba(0,168,255,.4); transform: translateY(-2px); }
+.product-card:hover {
+  border-color: rgba(0,168,255,.5);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(0,168,255,.12);
+}
 
 .product-thumb {
   background: var(--surface2);
-  aspect-ratio: 4/3;
+  aspect-ratio: 1;
   display: grid;
   place-items: center;
   position: relative;
@@ -357,26 +386,9 @@ nav .spacer { flex: 1; }
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(0,100,200,.2) 0%, transparent 70%);
+  background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(0,100,200,.18) 0%, transparent 70%);
 }
-.thumb-icon {
-  font-size: 2rem;
-  position: relative;
-  z-index: 1;
-}
-
-.badge-off {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  background: var(--red);
-  color: #fff;
-  font-size: 10px;
-  font-weight: 700;
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-variant-numeric: tabular-nums;
-}
+.thumb-icon { font-size: 2.2rem; position: relative; z-index: 1; }
 
 .product-body {
   padding: 12px;
@@ -388,318 +400,552 @@ nav .spacer { flex: 1; }
 
 .product-name {
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--fg);
   line-height: 1.4;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+}
+.product-duration {
+  font-size: 11px;
+  color: var(--blue);
+  font-weight: 600;
+  letter-spacing: .05em;
 }
 
 .product-price {
   display: flex;
   align-items: baseline;
-  gap: 8px;
-  flex-wrap: wrap;
+  gap: 6px;
 }
 .price-now {
-  font-family: var(--font-display);
-  font-size: 1rem;
+  font-family: var(--font-d);
+  font-size: 1.15rem;
   font-weight: 700;
-  color: var(--blue);
-  text-shadow: 0 0 10px var(--blue-glow);
-  font-variant-numeric: tabular-nums;
-}
-.price-was {
-  font-size: 11px;
-  color: var(--fg-muted);
-  text-decoration: line-through;
-  font-variant-numeric: tabular-nums;
+  color: var(--green);
+  text-shadow: 0 0 12px rgba(0,230,118,.3);
 }
 .price-pix { font-size: 10px; color: var(--fg-muted); }
 
 .btn-buy {
   margin-top: auto;
   width: 100%;
-  height: 34px;
+  height: 36px;
   background: transparent;
   border: 1px solid var(--blue);
-  border-radius: 5px;
+  border-radius: 6px;
   color: var(--blue);
-  font-family: var(--font-display);
+  font-family: var(--font-d);
   font-weight: 700;
   font-size: 13px;
   letter-spacing: .05em;
-  cursor: pointer;
-  transition: background .2s, box-shadow .2s;
+  transition: background .2s, color .2s, box-shadow .2s;
 }
 .btn-buy:hover {
   background: var(--blue);
   color: #000;
-  box-shadow: 0 0 16px rgba(0,168,255,.4);
+  box-shadow: 0 0 18px rgba(0,168,255,.4);
 }
 
-/* ─── FOOTER ─────────────────────────────────────────────────────────────────*/
+/* ── PIX MODAL ────────────────────────────────────────── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(0,0,0,.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.modal-overlay.open { display: flex; }
+
+.modal-box {
+  background: var(--surface);
+  border: 1px solid rgba(0,168,255,.25);
+  border-radius: 18px;
+  max-width: 420px;
+  width: 100%;
+  padding: 30px 24px 24px;
+  position: relative;
+  box-shadow: 0 0 60px rgba(0,168,255,.2), 0 24px 80px rgba(0,0,0,.6);
+  animation: modal-in .25s cubic-bezier(.34,1.4,.64,1);
+}
+@keyframes modal-in { from { transform: scale(.92); opacity: 0; } }
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--fg-muted);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 16px;
+  display: grid;
+  place-items: center;
+  transition: border-color .2s, color .2s;
+}
+.modal-close:hover { border-color: var(--blue); color: var(--blue); }
+
+.modal-header { text-align: center; margin-bottom: 22px; }
+.modal-icon { font-size: 44px; margin-bottom: 10px; }
+.modal-title {
+  font-family: var(--font-d);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: .5px;
+}
+.modal-product {
+  font-size: 13px;
+  color: var(--fg-muted);
+  margin-top: 4px;
+}
+
+.modal-value-box {
+  background: var(--surface2);
+  border: 1px solid rgba(0,230,118,.2);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+  margin-bottom: 14px;
+}
+.modal-value-label { font-size: 11px; color: var(--fg-muted); margin-bottom: 4px; }
+.modal-value {
+  font-family: var(--font-d);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--green);
+  text-shadow: 0 0 20px rgba(0,230,118,.3);
+}
+.modal-pix-note { font-size: 11px; color: var(--fg-muted); margin-top: 4px; }
+
+.modal-key-box {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+.modal-key-label { font-size: 11px; color: var(--fg-muted); margin-bottom: 8px; }
+.modal-key-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.modal-key-value {
+  flex: 1;
+  font-size: 14px;
+  color: var(--fg);
+  font-weight: 600;
+  word-break: break-all;
+  background: none;
+  border: none;
+  font-family: var(--font-b);
+}
+.btn-copy {
+  flex-shrink: 0;
+  height: 34px;
+  padding: 0 14px;
+  background: var(--blue);
+  color: #000;
+  border: none;
+  border-radius: 7px;
+  font-weight: 700;
+  font-size: 13px;
+  transition: background .2s, color .2s;
+}
+.btn-copy.copied { background: var(--green); color: #000; }
+
+.modal-steps {
+  background: rgba(0,168,255,.06);
+  border: 1px solid rgba(0,168,255,.15);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 12px;
+  color: var(--fg-muted);
+  line-height: 1.8;
+  margin-bottom: 14px;
+}
+.modal-steps strong { color: var(--blue); }
+
+.btn-whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 46px;
+  background: linear-gradient(135deg,#25d366,#128c7e);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-family: var(--font-d);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: .04em;
+  box-shadow: 0 4px 20px rgba(37,211,102,.25);
+  transition: box-shadow .2s, transform .15s;
+}
+.btn-whatsapp:hover { box-shadow: 0 4px 30px rgba(37,211,102,.4); transform: translateY(-1px); }
+
+/* ── FOOTER ───────────────────────────────────────────── */
 footer {
   border-top: 1px solid var(--border);
-  padding-block: 28px;
-  padding-left: max(16px, env(safe-area-inset-left, 0px));
-  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding: 28px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 16px;
 }
-footer p { font-size: 12px; color: var(--fg-muted); }
-.shopee-link {
+.footer-brand {
   display: flex;
   align-items: center;
-  gap: 6px;
-  height: 34px;
-  padding: 0 16px;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  font-size: 12px;
-  font-weight: 600;
+  gap: 10px;
+}
+.footer-brand img { height: 28px; width: auto; }
+.footer-brand span {
+  font-family: var(--font-d);
+  font-size: 15px;
+  font-weight: 700;
   color: var(--fg-muted);
-  transition: border-color .2s, color .2s;
 }
-.shopee-link:hover { border-color: var(--blue); color: var(--blue); }
+footer p { font-size: 12px; color: var(--fg-muted); }
 
-/* ─── RESPONSIVE ─────────────────────────────────────────────────────────────*/
-@media (max-width: 720px) {
-  .products { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 520px) {
-  .cats { grid-template-columns: repeat(3, 1fr); gap: 8px; }
-  .cat-card { padding: 16px 8px 14px; }
-  .cat-icon { width: 40px; height: 40px; font-size: 18px; }
-  .cat-name { font-size: 11px; }
-  .products { grid-template-columns: 1fr 1fr; gap: 8px; }
-  .hero { padding-block: 48px 40px; }
-  .hero-stats { gap: 24px; }
-}
-
-@media (max-width: 360px) {
-  .products { grid-template-columns: 1fr; }
+/* ── RESPONSIVE ───────────────────────────────────────── */
+@media (max-width: 600px) {
+  .hero { padding: 44px 16px 36px; }
+  .hero-stats { gap: 24px; margin-top: 36px; }
+  .trust-bar { gap: 16px; }
+  .shop-section { padding: 32px 16px 48px; }
+  .product-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .modal-box { padding: 24px 18px 18px; }
+  .modal-value { font-size: 30px; }
+  footer { flex-direction: column; align-items: flex-start; gap: 12px; }
 }
 </style>
+</head>
+<body>
 
 <!-- NAV -->
 <nav>
   <div class="logo">
-    <img src="logo.png" alt="Zoom Cheats" style="height:38px;width:auto;object-fit:contain;" onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='flex'">
-    <div id="logo-fallback" style="display:none;align-items:center;gap:10px;">
-      <div class="logo-icon">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-          <circle cx="9" cy="9" r="7" stroke="#00a8ff" stroke-width="1.5"/>
-          <line x1="9" y1="2" x2="9" y2="16" stroke="#00a8ff" stroke-width="1.5"/>
-          <line x1="2" y1="9" x2="16" y2="9" stroke="#00a8ff" stroke-width="1.5"/>
-          <circle cx="9" cy="9" r="2" fill="#00a8ff"/>
-        </svg>
-      </div>
-      ZOOM CHEATS <span class="logo-badge">✓</span>
-    </div>
+    <img src="logo.png" alt="Zoom Cheats" onerror="this.style.display='none'">
+    <span class="logo-text">ZOOM CHEATS</span>
   </div>
   <div class="spacer"></div>
-  <div class="nav-icons">
-    <button class="nav-btn" title="Buscar">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5"/><line x1="11" y1="11" x2="15" y2="15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-    </button>
-    <button class="nav-btn" title="Suporte">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.5"/><path d="M8 10.5V11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M6 6.5a2 2 0 1 1 3.5 1.3L8 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-    </button>
-    <button class="cart-btn">
-      <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M1 1h2l1.5 7h7l1.5-5H4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6.5" cy="12.5" r="1" fill="currentColor"/><circle cx="11" cy="12.5" r="1" fill="currentColor"/></svg>
-      Carrinho
-    </button>
-  </div>
+  <button class="nav-support" onclick="openWhats()">
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 1C3.91 1 1 3.91 1 7.5c0 1.16.3 2.26.84 3.2L1 14l3.38-.82A6.48 6.48 0 0 0 7.5 14C11.09 14 14 11.09 14 7.5S11.09 1 7.5 1z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M5.5 6c0-.27.22-.5.5-.5h.02c.27 0 .5.23.5.5v.5c0 .3-.13.58-.35.77L5.8 8.1C6.1 8.7 6.62 9.22 7.17 9.5l.53-.52c.2-.2.47-.28.75-.28h.05c.28 0 .5.22.5.5v1c0 .27-.22.5-.5.5A4.5 4.5 0 0 1 4 6.5c0-.28.22-.5.5-.5h1z" fill="currentColor"/></svg>
+    Suporte
+  </button>
+  <button class="nav-pix-btn" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1l1.6 3.3 3.4.5-2.5 2.4.6 3.4L7 9l-3.1 1.6.6-3.4L2 4.8l3.4-.5z" fill="currentColor"/></svg>
+    Ver Produtos
+  </button>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
   <div class="hero-inner">
-    <div class="hero-tag"><span class="dot"></span> Painéis disponíveis agora</div>
-    <h1>Precisão em<br><span>Cada Capa</span></h1>
-    <p>Painéis para iOS e Android com bypass nos analistas. Ganhe mais nos apostados com precisão real.</p>
-    <a href="https://www.shopee.com.br" target="_blank" class="hero-cta">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1l1.9 3.8 4.1.6-3 2.9.7 4.1L8 10.3l-3.7 1.9.7-4.1-3-2.9 4.2-.6z" fill="currentColor"/></svg>
-      Loja Oficial na Shopee
-    </a>
+    <div class="hero-badge">
+      <span class="live-dot"></span>
+      Painéis disponíveis agora
+    </div>
+    <h1>Precisão em<br><em>Cada Capa</em></h1>
+    <p class="hero-sub">Painéis exclusivos para Free Fire com bypass total nos analistas. iOS e Android. Ative em minutos via Pix.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 2h1.5l.8 4m0 0L5.5 11h7L14 6H4.3z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="13" r="1" fill="currentColor"/><circle cx="11" cy="13" r="1" fill="currentColor"/></svg>
+        Comprar Agora
+      </button>
+      <button class="btn-ghost" onclick="openWhats()">
+        📲 Falar no Suporte
+      </button>
+    </div>
     <div class="hero-stats">
-      <div><div class="stat-num">100%</div><div class="stat-label">Headshot garantido</div></div>
-      <div><div class="stat-num">R$24,99</div><div class="stat-label">Preço no Pix</div></div>
-      <div><div class="stat-num">iOS + Android</div><div class="stat-label">Compatibilidade</div></div>
+      <div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Headshot garantido</div>
+      </div>
+      <div>
+        <div class="stat-num">a partir de</div>
+        <div class="stat-label" style="font-size:18px;font-family:var(--font-d);font-weight:700;color:var(--green);">R$ 15,00</div>
+      </div>
+      <div>
+        <div class="stat-num">2 plat.</div>
+        <div class="stat-label">iOS + Android</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CATEGORIES -->
-<div class="section-wrap">
-  <div class="section-title">Categorias populares</div>
-  <div class="cats">
-    <div class="cat-card">
-      <div class="cat-icon">🤖</div>
-      <div class="cat-name">Android</div>
-      <div class="cat-count">4 painéis</div>
-    </div>
-    <div class="cat-card">
-      <div class="cat-icon">📱</div>
-      <div class="cat-name">iPhone</div>
-      <div class="cat-count">4 painéis</div>
-    </div>
-  </div>
-
-  <!-- PRODUCTS ANDROID -->
-  <div class="section-title">Android</div>
-  <div class="products" id="grid-android"></div>
-
-  <!-- PRODUCTS IPHONE -->
-  <div class="section-title" style="margin-top:2rem">iPhone</div>
-  <div class="products" id="grid-iphone"></div>
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><span>⚡</span> Ativação imediata</div>
+  <div class="trust-item"><span>🔒</span> 100% Antiban</div>
+  <div class="trust-item"><span>💳</span> Pix na hora</div>
+  <div class="trust-item"><span>📲</span> Suporte via WhatsApp</div>
+  <div class="trust-item"><span>🎯</span> 100% Headshot</div>
 </div>
 
-<!-- MODAL PIX -->
-<div id="pix-modal" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.75);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:16px;">
-  <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;max-width:400px;width:100%;padding:28px 24px;position:relative;box-shadow:0 0 40px var(--blue-glow);">
-    <button onclick="closePix()" style="position:absolute;top:14px;right:14px;background:none;border:none;color:var(--fg-muted);font-size:22px;cursor:pointer;line-height:1;">✕</button>
-    <div style="text-align:center;margin-bottom:20px;">
-      <div style="font-size:40px;margin-bottom:8px;">💸</div>
-      <div style="font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--blue);letter-spacing:.5px;">Pagamento via Pix</div>
-      <div id="pix-product-name" style="color:var(--fg-muted);font-size:13px;margin-top:4px;"></div>
+<!-- SHOP -->
+<div class="shop-section" id="shop">
+  <h2 class="shop-heading">Nossos <span>Produtos</span></h2>
+
+  <div class="tabs" role="tablist">
+    <button class="tab-btn active" onclick="switchTab('android',this)" role="tab">
+      🤖 Android <span class="tab-count" id="count-android">16</span>
+    </button>
+    <button class="tab-btn" onclick="switchTab('iphone',this)" role="tab">
+      📱 iPhone <span class="tab-count" id="count-iphone">16</span>
+    </button>
+  </div>
+
+  <div id="panel-android" class="tab-panel active"></div>
+  <div id="panel-iphone" class="tab-panel"></div>
+</div>
+
+<!-- PIX MODAL -->
+<div class="modal-overlay" id="pix-modal" onclick="handleModalClick(event)">
+  <div class="modal-box" role="dialog" aria-modal="true">
+    <button class="modal-close" onclick="closePix()" aria-label="Fechar">✕</button>
+    <div class="modal-header">
+      <div class="modal-icon">💸</div>
+      <div class="modal-title">Pagamento via Pix</div>
+      <div class="modal-product" id="modal-product-name"></div>
     </div>
-    <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:16px;text-align:center;">
-      <div style="font-size:12px;color:var(--fg-muted);margin-bottom:4px;">Valor a pagar</div>
-      <div id="pix-value" style="font-family:var(--font-display);font-size:32px;font-weight:700;color:var(--green);"></div>
-      <div style="font-size:11px;color:var(--fg-muted);margin-top:4px;">à vista no Pix ✓</div>
+    <div class="modal-value-box">
+      <div class="modal-value-label">Valor a pagar</div>
+      <div class="modal-value" id="modal-value"></div>
+      <div class="modal-pix-note">à vista no Pix ✓</div>
     </div>
-    <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:14px;">
-      <div style="font-size:12px;color:var(--fg-muted);margin-bottom:6px;">Chave Pix (E-mail)</div>
-      <div style="display:flex;align-items:center;gap:10px;">
-        <code id="pix-key" style="flex:1;font-size:14px;color:var(--fg);word-break:break-all;">joaogabrielsdes5@gmail.com</code>
-        <button onclick="copyPix()" id="btn-copy" style="background:var(--blue);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;transition:background .2s;">Copiar</button>
+    <div class="modal-key-box">
+      <div class="modal-key-label">🔑 Chave Pix — E-mail</div>
+      <div class="modal-key-row">
+        <span class="modal-key-value" id="modal-key">joaogabrielsdes5@gmail.com</span>
+        <button class="btn-copy" id="btn-copy" onclick="copyKey()">Copiar</button>
       </div>
     </div>
-    <div style="background:rgba(0,168,255,.07);border:1px solid rgba(0,168,255,.2);border-radius:10px;padding:12px;font-size:12px;color:var(--fg-muted);line-height:1.6;">
-      <strong style="color:var(--blue);">📋 Instruções:</strong><br>
+    <div class="modal-steps">
+      <strong>📋 Como pagar:</strong><br>
       1. Copie a chave Pix acima<br>
-      2. Abra seu banco e faça o Pix com o valor exato<br>
-      3. Envie o comprovante no suporte para liberar o acesso
+      2. Abra seu banco → Pix → Pagar → Cole a chave<br>
+      3. Informe o valor exato e confirme<br>
+      4. Envie o comprovante no suporte abaixo ↓
     </div>
-    <a href="https://wa.me/55" target="_blank" id="pix-suporte" style="display:block;margin-top:14px;background:linear-gradient(135deg,#00e676,#00b35a);color:#000;text-align:center;padding:12px;border-radius:10px;font-weight:700;font-size:14px;text-decoration:none;">
-      📲 Enviar comprovante no Suporte
-    </a>
+    <button class="btn-whatsapp" onclick="openWhatsComprova()">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1C4.6 1 1 4.6 1 9c0 1.4.37 2.72 1.01 3.87L1 17l4.22-.99A8 8 0 0 0 9 17c4.4 0 8-3.6 8-8S13.4 1 9 1z" fill="currentColor" opacity=".9"/><path d="M6.5 7c0-.33.27-.6.6-.6h.02c.33 0 .6.27.6.6v.6c0 .37-.16.7-.42.93L6.9 9.3c.36.73 1.02 1.4 1.7 1.74l.64-.63c.23-.22.56-.35.9-.35h.06c.33 0 .6.27.6.6v1.2c0 .33-.27.6-.6.6A5.4 5.4 0 0 1 4.8 7.6c0-.33.27-.6.6-.6H6.5z" fill="#000" opacity=".85"/></svg>
+      📤 Enviar Comprovante
+    </button>
   </div>
 </div>
 
 <!-- FOOTER -->
 <footer>
+  <div class="footer-brand">
+    <img src="logo.png" alt="Zoom Cheats" onerror="this.style.display='none'">
+    <span>ZOOM CHEATS</span>
+  </div>
   <p>© 2026 Zoom Cheats · Todos os direitos reservados</p>
+  <p style="font-size:11px;color:rgba(126,168,204,.5);">Produto digital · Uso exclusivo Free Fire</p>
 </footer>
 
 <script>
-const androidProducts = [
-  { name: "Painel Android — 6H DRIP",      icon: "🤖", now: "R$ 15,00" },
-  { name: "Painel Android — 12H DRIP",     icon: "🤖", now: "R$ 20,00" },
-  { name: "Painel Android — 1 DIA DRIP",   icon: "🤖", now: "R$ 25,00" },
-  { name: "Painel Android — 7 DIAS DRIP",  icon: "🤖", now: "R$ 75,00" },
-  { name: "Painel Android — 30 DIAS DRIP", icon: "🤖", now: "R$ 130,00" },
-  { name: "Painel Mod APK — 1 DIA",        icon: "📦", now: "R$ 19,00" },
-  { name: "Painel Mod APK — 10 DIAS",     icon: "📦", now: "R$ 49,00" },
-  { name: "Painel Mod APK — 30 DIAS",     icon: "📦", now: "R$ 79,00" },
-  { name: "Painel Mod APK — PERMANENTE",  icon: "📦", now: "R$ 150,00" },
-  { name: "Proxy Menu Android — 1 DIA",       icon: "🌐", now: "R$ 20,00" },
-  { name: "Proxy Menu Android — 7 DIAS",      icon: "🌐", now: "R$ 50,00" },
-  { name: "Proxy Menu Android — 30 DIAS",     icon: "🌐", now: "R$ 80,00" },
-  { name: "Proxy Menu Android — PERMANENTE",  icon: "🌐", now: "R$ 200,00" },
-  { name: "HS Proxy Android — 1 DIA",   icon: "🎯", now: "R$ 20,00" },
-  { name: "HS Proxy Android — 7 DIAS",  icon: "🎯", now: "R$ 50,00" },
-  { name: "HS Proxy Android — 30 DIAS", icon: "🎯", now: "R$ 80,00" },
-];
-
-const iphoneProducts = [
-  { name: "Painel iOS Drip — 6H",      icon: "💧", now: "R$ 15,00" },
-  { name: "Painel iOS Drip — 12H",     icon: "💧", now: "R$ 20,00" },
-  { name: "Painel iOS Drip — 1 DIA",   icon: "💧", now: "R$ 25,00" },
-  { name: "Painel iOS Drip — 7 DIAS",  icon: "💧", now: "R$ 75,00" },
-  { name: "Painel iOS Drip — 30 DIAS", icon: "💧", now: "R$ 130,00" },
-  { name: "Painel iOS Safe — 1 DIA",       icon: "🛡️", now: "R$ 20,00" },
-  { name: "Painel iOS Safe — 7 DIAS",      icon: "🛡️", now: "R$ 55,00" },
-  { name: "Painel iOS Safe — 30 DIAS",     icon: "🛡️", now: "R$ 89,00" },
-  { name: "Painel iOS Safe — PERMANENTE",  icon: "🛡️", now: "R$ 250,00" },
-  { name: "HS iOS External — 1 DIA",       icon: "🔗", now: "R$ 15,00" },
-  { name: "HS iOS External — 7 DIAS",      icon: "🔗", now: "R$ 40,00" },
-  { name: "HS iOS External — 30 DIAS",     icon: "🔗", now: "R$ 70,00" },
-  { name: "HS iOS External — PERMANENTE",  icon: "🔗", now: "R$ 150,00" },
-  { name: "HS Proxy iOS — 1 DIA",   icon: "📱", now: "R$ 20,00" },
-  { name: "HS Proxy iOS — 7 DIAS",  icon: "📱", now: "R$ 55,00" },
-  { name: "HS Proxy iOS — 30 DIAS", icon: "📱", now: "R$ 83,00" },
-];
-
+// ── DADOS ─────────────────────────────────────────────────────
 const PIX_KEY = 'joaogabrielsdes5@gmail.com';
+const WHATS   = '5500000000000'; // substitua pelo número real
 
-function openPix(name, value) {
-  document.getElementById('pix-product-name').textContent = name;
-  document.getElementById('pix-value').textContent = value;
-  document.getElementById('pix-key').textContent = PIX_KEY;
-  const modal = document.getElementById('pix-modal');
-  modal.style.display = 'flex';
+const ANDROID = [
+  {
+    group: '🤖 Painel Android (Drip)',
+    items: [
+      { name: 'Painel Android', duration: '6H DRIP',       price: 'R$ 15,00', icon: '🤖' },
+      { name: 'Painel Android', duration: '12H DRIP',      price: 'R$ 20,00', icon: '🤖' },
+      { name: 'Painel Android', duration: '1 DIA DRIP',    price: 'R$ 25,00', icon: '🤖' },
+      { name: 'Painel Android', duration: '7 DIAS DRIP',   price: 'R$ 75,00', icon: '🤖' },
+      { name: 'Painel Android', duration: '30 DIAS DRIP',  price: 'R$ 130,00', icon: '🤖' },
+    ]
+  },
+  {
+    group: '📦 Painel Mod APK',
+    items: [
+      { name: 'Painel Mod APK', duration: '1 DIA',        price: 'R$ 19,00',  icon: '📦' },
+      { name: 'Painel Mod APK', duration: '10 DIAS',      price: 'R$ 49,00',  icon: '📦' },
+      { name: 'Painel Mod APK', duration: '30 DIAS',      price: 'R$ 79,00',  icon: '📦' },
+      { name: 'Painel Mod APK', duration: 'PERMANENTE',   price: 'R$ 150,00', icon: '📦' },
+    ]
+  },
+  {
+    group: '🌐 Proxy Menu Android',
+    items: [
+      { name: 'Proxy Menu Android', duration: '1 DIA',       price: 'R$ 20,00',  icon: '🌐' },
+      { name: 'Proxy Menu Android', duration: '7 DIAS',      price: 'R$ 50,00',  icon: '🌐' },
+      { name: 'Proxy Menu Android', duration: '30 DIAS',     price: 'R$ 80,00',  icon: '🌐' },
+      { name: 'Proxy Menu Android', duration: 'PERMANENTE',  price: 'R$ 200,00', icon: '🌐' },
+    ]
+  },
+  {
+    group: '🎯 HS Proxy Android',
+    items: [
+      { name: 'HS Proxy Android', duration: '1 DIA',   price: 'R$ 20,00', icon: '🎯' },
+      { name: 'HS Proxy Android', duration: '7 DIAS',  price: 'R$ 50,00', icon: '🎯' },
+      { name: 'HS Proxy Android', duration: '30 DIAS', price: 'R$ 80,00', icon: '🎯' },
+    ]
+  },
+];
+
+const IPHONE = [
+  {
+    group: '💧 Painel iOS Drip',
+    items: [
+      { name: 'Painel iOS Drip', duration: '6H',       price: 'R$ 15,00',  icon: '💧' },
+      { name: 'Painel iOS Drip', duration: '12H',      price: 'R$ 20,00',  icon: '💧' },
+      { name: 'Painel iOS Drip', duration: '1 DIA',    price: 'R$ 25,00',  icon: '💧' },
+      { name: 'Painel iOS Drip', duration: '7 DIAS',   price: 'R$ 75,00',  icon: '💧' },
+      { name: 'Painel iOS Drip', duration: '30 DIAS',  price: 'R$ 130,00', icon: '💧' },
+    ]
+  },
+  {
+    group: '🛡️ Painel iOS Safe',
+    items: [
+      { name: 'Painel iOS Safe', duration: '1 DIA',      price: 'R$ 20,00',  icon: '🛡️' },
+      { name: 'Painel iOS Safe', duration: '7 DIAS',     price: 'R$ 55,00',  icon: '🛡️' },
+      { name: 'Painel iOS Safe', duration: '30 DIAS',    price: 'R$ 89,00',  icon: '🛡️' },
+      { name: 'Painel iOS Safe', duration: 'PERMANENTE', price: 'R$ 250,00', icon: '🛡️' },
+    ]
+  },
+  {
+    group: '🔗 HS iOS External',
+    items: [
+      { name: 'HS iOS External', duration: '1 DIA',      price: 'R$ 15,00',  icon: '🔗' },
+      { name: 'HS iOS External', duration: '7 DIAS',     price: 'R$ 40,00',  icon: '🔗' },
+      { name: 'HS iOS External', duration: '30 DIAS',    price: 'R$ 70,00',  icon: '🔗' },
+      { name: 'HS iOS External', duration: 'PERMANENTE', price: 'R$ 150,00', icon: '🔗' },
+    ]
+  },
+  {
+    group: '📱 HS Proxy iOS (WiFi)',
+    items: [
+      { name: 'HS Proxy iOS', duration: '1 DIA',   price: 'R$ 20,00', icon: '📱' },
+      { name: 'HS Proxy iOS', duration: '7 DIAS',  price: 'R$ 55,00', icon: '📱' },
+      { name: 'HS Proxy iOS', duration: '30 DIAS', price: 'R$ 83,00', icon: '📱' },
+    ]
+  },
+];
+
+// ── RENDER ────────────────────────────────────────────────────
+function buildPanel(groups, panelId) {
+  const panel = document.getElementById(panelId);
+  let total = 0;
+  groups.forEach(g => {
+    total += g.items.length;
+    const section = document.createElement('div');
+    section.className = 'product-group';
+    section.innerHTML = `<div class="group-label">${g.group}</div>
+      <div class="product-grid"></div>`;
+    const grid = section.querySelector('.product-grid');
+    g.items.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.innerHTML = `
+        <div class="product-thumb"><span class="thumb-icon">${p.icon}</span></div>
+        <div class="product-body">
+          <div class="product-name">${p.name}</div>
+          <div class="product-duration">${p.duration}</div>
+          <div class="product-price">
+            <span class="price-now">${p.price}</span>
+          </div>
+          <div class="price-pix">Pix à vista</div>
+          <button class="btn-buy">Comprar</button>
+        </div>`;
+      card.querySelector('.btn-buy').addEventListener('click', () => openPix(p.name, p.duration, p.price));
+      grid.appendChild(card);
+    });
+    panel.appendChild(section);
+  });
+  return total;
+}
+
+const ca = buildPanel(ANDROID, 'panel-android');
+const ci = buildPanel(IPHONE,  'panel-iphone');
+document.getElementById('count-android').textContent = ca;
+document.getElementById('count-iphone').textContent  = ci;
+
+// ── TABS ──────────────────────────────────────────────────────
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('panel-' + id).classList.add('active');
+}
+
+// ── PIX MODAL ─────────────────────────────────────────────────
+function openPix(name, duration, price) {
+  document.getElementById('modal-product-name').textContent = name + ' — ' + duration;
+  document.getElementById('modal-value').textContent = price;
+  document.getElementById('modal-key').textContent = PIX_KEY;
+  const btn = document.getElementById('btn-copy');
+  btn.textContent = 'Copiar';
+  btn.classList.remove('copied');
+  document.getElementById('pix-modal').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
 
 function closePix() {
-  document.getElementById('pix-modal').style.display = 'none';
+  document.getElementById('pix-modal').classList.remove('open');
   document.body.style.overflow = '';
-  const btn = document.getElementById('btn-copy');
-  btn.textContent = 'Copiar';
-  btn.style.background = 'var(--blue)';
 }
 
-function copyPix() {
-  navigator.clipboard.writeText(PIX_KEY).then(() => {
+function handleModalClick(e) {
+  if (e.target === e.currentTarget) closePix();
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closePix(); });
+
+function copyKey() {
+  const key = document.getElementById('modal-key').textContent;
+  navigator.clipboard.writeText(key).then(() => {
     const btn = document.getElementById('btn-copy');
     btn.textContent = '✓ Copiado!';
-    btn.style.background = 'var(--green)';
-    btn.style.color = '#000';
+    btn.classList.add('copied');
     setTimeout(() => {
       btn.textContent = 'Copiar';
-      btn.style.background = 'var(--blue)';
-      btn.style.color = '#fff';
+      btn.classList.remove('copied');
     }, 2500);
+  }).catch(() => {
+    // fallback
+    const ta = document.createElement('textarea');
+    ta.value = key;
+    ta.style.cssText = 'position:fixed;opacity:0;';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    const btn = document.getElementById('btn-copy');
+    btn.textContent = '✓ Copiado!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copiar'; btn.classList.remove('copied'); }, 2500);
   });
 }
 
-// Fecha modal ao clicar fora
-document.getElementById('pix-modal').addEventListener('click', function(e) {
-  if (e.target === this) closePix();
-});
-
-function renderProducts(arr, containerId) {
-  const grid = document.getElementById(containerId);
-  arr.forEach(p => {
-    const card = document.createElement('div');
-    card.className = 'product-card';
-    card.innerHTML = `
-      <div class="product-thumb">
-        <span class="thumb-icon">${p.icon}</span>
-      </div>
-      <div class="product-body">
-        <div class="product-name">${p.name}</div>
-        <div class="product-price">
-          <span class="price-now">${p.now}</span>
-        </div>
-        <div class="price-pix">À vista no Pix</div>
-        <button class="btn-buy">Comprar agora</button>
-      </div>
-    `;
-    card.querySelector('.btn-buy').addEventListener('click', () => openPix(p.name, p.now));
-    grid.appendChild(card);
-  });
+// ── WHATSAPP ──────────────────────────────────────────────────
+function openWhats() {
+  const txt = encodeURIComponent('Olá! Preciso de suporte no Zoom Cheats.');
+  window.open('https://wa.me/' + WHATS + '?text=' + txt, '_blank');
 }
 
-renderProducts(androidProducts, 'grid-android');
-renderProducts(iphoneProducts, 'grid-iphone');
+function openWhatsComprova() {
+  const prod = document.getElementById('modal-product-name').textContent;
+  const val  = document.getElementById('modal-value').textContent;
+  const txt  = encodeURIComponent('Olá! Efetuei o pagamento Pix de ' + val + ' para o produto: ' + prod + '. Segue o comprovante!');
+  window.open('https://wa.me/' + WHATS + '?text=' + txt, '_blank');
+}
 </script>
+</body>
+</html>
