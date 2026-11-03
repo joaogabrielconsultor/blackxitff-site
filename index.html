@@ -764,6 +764,7 @@ const WHATS   = '5500000000000'; // substitua pelo número real
 const ANDROID = [
   {
     group: '🤖 Painel Android (Drip)',
+    img: 'img-android-drip.png',
     items: [
       { name: 'Painel Android', duration: '6H DRIP',       price: 'R$ 15,00', icon: '🤖' },
       { name: 'Painel Android', duration: '12H DRIP',      price: 'R$ 20,00', icon: '🤖' },
@@ -774,6 +775,7 @@ const ANDROID = [
   },
   {
     group: '📦 Painel Mod APK',
+    img: 'img-mod-apk.png',
     items: [
       { name: 'Painel Mod APK', duration: '1 DIA',        price: 'R$ 19,00',  icon: '📦' },
       { name: 'Painel Mod APK', duration: '10 DIAS',      price: 'R$ 49,00',  icon: '📦' },
@@ -783,6 +785,7 @@ const ANDROID = [
   },
   {
     group: '🌐 Proxy Menu Android',
+    img: 'img-proxy-android.png',
     items: [
       { name: 'Proxy Menu Android', duration: '1 DIA',       price: 'R$ 20,00',  icon: '🌐' },
       { name: 'Proxy Menu Android', duration: '7 DIAS',      price: 'R$ 50,00',  icon: '🌐' },
@@ -792,6 +795,7 @@ const ANDROID = [
   },
   {
     group: '🎯 HS Proxy Android',
+    img: 'img-hs-android.png',
     items: [
       { name: 'HS Proxy Android', duration: '1 DIA',   price: 'R$ 20,00', icon: '🎯' },
       { name: 'HS Proxy Android', duration: '7 DIAS',  price: 'R$ 50,00', icon: '🎯' },
@@ -803,6 +807,7 @@ const ANDROID = [
 const IPHONE = [
   {
     group: '💧 Painel iOS Drip',
+    img: 'img-ios-drip.png',
     items: [
       { name: 'Painel iOS Drip', duration: '6H',       price: 'R$ 15,00',  icon: '💧' },
       { name: 'Painel iOS Drip', duration: '12H',      price: 'R$ 20,00',  icon: '💧' },
@@ -813,6 +818,7 @@ const IPHONE = [
   },
   {
     group: '🛡️ Painel iOS Safe',
+    img: 'img-ios-safe.png',
     items: [
       { name: 'Painel iOS Safe', duration: '1 DIA',      price: 'R$ 20,00',  icon: '🛡️' },
       { name: 'Painel iOS Safe', duration: '7 DIAS',     price: 'R$ 55,00',  icon: '🛡️' },
@@ -822,6 +828,7 @@ const IPHONE = [
   },
   {
     group: '🔗 HS iOS External',
+    img: 'img-hs-external.png',
     items: [
       { name: 'HS iOS External', duration: '1 DIA',      price: 'R$ 15,00',  icon: '🔗' },
       { name: 'HS iOS External', duration: '7 DIAS',     price: 'R$ 40,00',  icon: '🔗' },
@@ -831,6 +838,7 @@ const IPHONE = [
   },
   {
     group: '📱 HS Proxy iOS (WiFi)',
+    img: 'img-hs-proxy-ios.png',
     items: [
       { name: 'HS Proxy iOS', duration: '1 DIA',   price: 'R$ 20,00', icon: '📱' },
       { name: 'HS Proxy iOS', duration: '7 DIAS',  price: 'R$ 55,00', icon: '📱' },
@@ -853,8 +861,11 @@ function buildPanel(groups, panelId) {
     g.items.forEach(p => {
       const card = document.createElement('div');
       card.className = 'product-card';
+      const thumbHtml = g.img
+        ? `<img src="${g.img}" alt="${p.name}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">`
+        : `<span class="thumb-icon">${p.icon}</span>`;
       card.innerHTML = `
-        <div class="product-thumb"><span class="thumb-icon">${p.icon}</span></div>
+        <div class="product-thumb">${thumbHtml}</div>
         <div class="product-body">
           <div class="product-name">${p.name}</div>
           <div class="product-duration">${p.duration}</div>
