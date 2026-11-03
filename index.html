@@ -7,6 +7,7 @@
 <meta name="description" content="Zoom Cheats: painéis para Free Fire com 100% headshot. iOS e Android. Pagamento via Pix.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <style>
 :root {
   --bg:        #03060f;
@@ -523,6 +524,24 @@ nav .spacer { flex: 1; }
 }
 .modal-pix-note { font-size: 11px; color: var(--fg-muted); margin-top: 4px; }
 
+.modal-qr-wrap {
+  text-align: center;
+  margin-bottom: 14px;
+}
+.modal-qr-label {
+  font-size: 11px;
+  color: var(--fg-muted);
+  margin-bottom: 10px;
+}
+.modal-qr {
+  display: inline-block;
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 0 24px rgba(0,168,255,.25);
+}
+.modal-qr canvas, .modal-qr img { display: block; border-radius: 4px; }
+
 .modal-key-box {
   background: var(--surface2);
   border: 1px solid var(--border);
@@ -725,19 +744,18 @@ footer p { font-size: 12px; color: var(--fg-muted); }
       <div class="modal-value" id="modal-value"></div>
       <div class="modal-pix-note">à vista no Pix ✓</div>
     </div>
-    <div class="modal-key-box">
-      <div class="modal-key-label">🔑 Chave Pix — E-mail</div>
-      <div class="modal-key-row">
-        <span class="modal-key-value" id="modal-key">joaogabrielsdes5@gmail.com</span>
-        <button class="btn-copy" id="btn-copy" onclick="copyKey()">Copiar</button>
-      </div>
+    <!-- QR CODE -->
+    <div class="modal-qr-wrap">
+      <div class="modal-qr-label">📷 Escaneie com o app do banco</div>
+      <div id="modal-qr" class="modal-qr"></div>
     </div>
-    <div class="modal-steps">
-      <strong>📋 Como pagar:</strong><br>
-      1. Copie a chave Pix acima<br>
-      2. Abra seu banco → Pix → Pagar → Cole a chave<br>
-      3. Informe o valor exato e confirme<br>
-      4. Envie o comprovante no suporte abaixo ↓
+    <!-- COPIA E COLA -->
+    <div class="modal-key-box">
+      <div class="modal-key-label">📋 Pix Copia e Cola</div>
+      <div class="modal-key-row">
+        <span class="modal-key-value" id="modal-pix-code" style="font-size:10px;word-break:break-all;font-family:monospace;line-height:1.4;"></span>
+        <button class="btn-copy" id="btn-copy-pix" onclick="copyPixCode()">Copiar</button>
+      </div>
     </div>
     <button class="btn-whatsapp" onclick="openWhatsComprova()">
       <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1C4.6 1 1 4.6 1 9c0 1.4.37 2.72 1.01 3.87L1 17l4.22-.99A8 8 0 0 0 9 17c4.4 0 8-3.6 8-8S13.4 1 9 1z" fill="currentColor" opacity=".9"/><path d="M6.5 7c0-.33.27-.6.6-.6h.02c.33 0 .6.27.6.6v.6c0 .37-.16.7-.42.93L6.9 9.3c.36.73 1.02 1.4 1.7 1.74l.64-.63c.23-.22.56-.35.9-.35h.06c.33 0 .6.27.6.6v1.2c0 .33-.27.6-.6.6A5.4 5.4 0 0 1 4.8 7.6c0-.33.27-.6.6-.6H6.5z" fill="#000" opacity=".85"/></svg>
@@ -896,14 +914,84 @@ function switchTab(id, btn) {
   document.getElementById('panel-' + id).classList.add('active');
 }
 
+// ── PIX PAYLOAD (EMV BR Code) ─────────────────────────────────
+function crc16(str) {
+  let crc = 0xFFFF;
+  for (let i = 0; i < str.length; i++) {
+    crc ^= str.charCodeAt(i) << 8;
+    for (let j = 0; j < 8; j++) {
+      crc = (crc & 0x8000) ? (crc << 1) ^ 0x1021 : crc << 1;
+    }
+  }
+  return (crc & 0xFFFF).toString(16).toUpperCase().padStart(4, '0');
+}
+
+function tlv(id, value) {
+  const len = String(value.length).padStart(2, '0');
+  return id + len + value;
+}
+
+function buildPixPayload(key, amount, merchantName, merchantCity, txId) {
+  const keyTlv = tlv('00', 'BR.GOV.BCB.PIX') + tlv('01', key);
+  const merchantAccount = tlv('26', keyTlv);
+  const amountStr = parseFloat(amount).toFixed(2);
+  const name = merchantName.substring(0, 25).toUpperCase();
+  const city = merchantCity.substring(0, 15).toUpperCase();
+  const tid  = (txId || '***').substring(0, 25);
+
+  let payload =
+    tlv('00', '01') +
+    merchantAccount +
+    tlv('52', '0000') +
+    tlv('53', '986') +
+    tlv('54', amountStr) +
+    tlv('58', 'BR') +
+    tlv('59', name) +
+    tlv('60', city) +
+    tlv('62', tlv('05', tid));
+
+  payload += '6304';
+  payload += crc16(payload);
+  return payload;
+}
+
 // ── PIX MODAL ─────────────────────────────────────────────────
+let _qrInstance = null;
+
 function openPix(name, duration, price) {
   document.getElementById('modal-product-name').textContent = name + ' — ' + duration;
   document.getElementById('modal-value').textContent = price;
-  document.getElementById('modal-key').textContent = PIX_KEY;
-  const btn = document.getElementById('btn-copy');
-  btn.textContent = 'Copiar';
-  btn.classList.remove('copied');
+
+  // valor numérico
+  const amountStr = price.replace('R$','').replace('.','').replace(',','.').trim();
+
+  // gera payload
+  const payload = buildPixPayload(
+    PIX_KEY,
+    amountStr,
+    'ZOOM CHEATS',
+    'SAO PAULO',
+    'ZOOMCHEATS'
+  );
+
+  // exibe código copia e cola
+  document.getElementById('modal-pix-code').textContent = payload;
+  const btnPix = document.getElementById('btn-copy-pix');
+  btnPix.textContent = 'Copiar';
+  btnPix.classList.remove('copied');
+
+  // gera QR Code
+  const qrEl = document.getElementById('modal-qr');
+  qrEl.innerHTML = '';
+  _qrInstance = new QRCode(qrEl, {
+    text: payload,
+    width: 180,
+    height: 180,
+    colorDark: '#000000',
+    colorLight: '#ffffff',
+    correctLevel: QRCode.CorrectLevel.M
+  });
+
   document.getElementById('pix-modal').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -919,31 +1007,28 @@ function handleModalClick(e) {
 
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closePix(); });
 
-function copyKey() {
-  const key = document.getElementById('modal-key').textContent;
-  navigator.clipboard.writeText(key).then(() => {
-    const btn = document.getElementById('btn-copy');
+function copyPixCode() {
+  const code = document.getElementById('modal-pix-code').textContent;
+  const btn = document.getElementById('btn-copy-pix');
+  const doCopy = () => {
     btn.textContent = '✓ Copiado!';
     btn.classList.add('copied');
-    setTimeout(() => {
-      btn.textContent = 'Copiar';
-      btn.classList.remove('copied');
-    }, 2500);
-  }).catch(() => {
-    // fallback
+    setTimeout(() => { btn.textContent = 'Copiar'; btn.classList.remove('copied'); }, 2500);
+  };
+  navigator.clipboard.writeText(code).then(doCopy).catch(() => {
     const ta = document.createElement('textarea');
-    ta.value = key;
+    ta.value = code;
     ta.style.cssText = 'position:fixed;opacity:0;';
     document.body.appendChild(ta);
     ta.select();
     document.execCommand('copy');
     document.body.removeChild(ta);
-    const btn = document.getElementById('btn-copy');
-    btn.textContent = '✓ Copiado!';
-    btn.classList.add('copied');
-    setTimeout(() => { btn.textContent = 'Copiar'; btn.classList.remove('copied'); }, 2500);
+    doCopy();
   });
 }
+
+// legacy alias (unused but safe)
+function copyKey() { copyPixCode(); }
 
 // ── WHATSAPP ──────────────────────────────────────────────────
 function openWhats() {
