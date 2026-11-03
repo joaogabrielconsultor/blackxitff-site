@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Links dos Produtos — Zoom Cheats</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#020812;--surface:#060f24;--surface2:#0b1a38;
+  --border:rgba(0,168,255,.15);--border2:rgba(0,168,255,.3);
+  --blue:#00aaff;--blue2:#0077dd;--cyan:#00eeff;
+  --fg:#e4f0ff;--fg-muted:#6a96bb;--green:#00e676;
+  --font-h:'Rajdhani',sans-serif;--font-b:'Inter',sans-serif;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-b);font-size:14px;line-height:1.5;padding:32px 20px 60px}
+.page-header{max-width:800px;margin:0 auto 32px;border-bottom:1px solid var(--border);padding-bottom:20px}
+.page-title{font-family:var(--font-h);font-size:1.6rem;font-weight:700;letter-spacing:.08em;
+  background:linear-gradient(90deg,var(--blue),var(--cyan));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.page-sub{font-size:12px;color:var(--fg-muted);margin-top:6px}
+.back{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 14px;
+  border:1px solid var(--border2);border-radius:6px;color:var(--blue);
+  font-size:12px;font-weight:600;margin-bottom:24px;transition:background .2s;}
+.back:hover{background:rgba(0,168,255,.08)}
+.content{max-width:800px;margin:0 auto}
+.group-block{margin-bottom:36px}
+.group-title{font-family:var(--font-h);font-size:.95rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--blue);
+  margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.link-row{
+  display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:10px;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:10px;padding:12px 14px;margin-bottom:8px;
+}
+.link-row:hover{border-color:var(--border2)}
+.link-info strong{display:block;font-size:13px;font-weight:600;color:var(--fg);margin-bottom:2px}
+.link-info .url{font-size:11px;color:var(--fg-muted);font-family:monospace;word-break:break-all}
+.price-tag{font-family:var(--font-h);font-weight:700;font-size:1.1rem;color:var(--green);white-space:nowrap}
+.btn-copy{
+  height:34px;padding:0 14px;white-space:nowrap;
+  background:linear-gradient(135deg,var(--blue2),var(--blue));
+  color:#fff;border:none;border-radius:7px;
+  font-weight:700;font-size:12px;letter-spacing:.05em;cursor:pointer;
+  transition:box-shadow .2s;
+}
+.btn-copy:hover{box-shadow:0 0 16px rgba(0,168,255,.4)}
+.btn-copy.copied{background:linear-gradient(135deg,#00a855,var(--green));color:#000}
+.tab-section{margin-bottom:48px}
+.tab-label{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-h);font-size:1.1rem;font-weight:700;letter-spacing:.08em;
+  color:var(--fg);margin-bottom:20px;
+}
+.tab-label::before{content:'';width:4px;height:20px;
+  background:linear-gradient(180deg,var(--blue),var(--cyan));
+  border-radius:4px;display:inline-block}
+.note{font-size:12px;color:var(--fg-muted);background:var(--surface);
+  border:1px solid var(--border);border-radius:8px;padding:12px 14px;
+  margin-bottom:24px;line-height:1.6}
+.note strong{color:var(--blue)}
+</style>
+</head>
+<body>
+
+<div class="content">
+  <a class="back" href="/">← Voltar ao site</a>
+  <div class="page-header">
+    <div class="page-title">Links dos Produtos</div>
+    <div class="page-sub">Links diretos para cada produto — clique no produto e o modal de pagamento abre automaticamente</div>
+  </div>
+
+  <div class="note">
+    <strong>Como usar no WhatsApp:</strong> copie o link do produto e envie para o cliente. Quando o cliente clicar, o site abre direto no modal de pagamento Pix com o valor correto, pronto para escanear.
+  </div>
+
+  <div id="link-list"></div>
+</div>
+
+<script>
+const BASE = location.origin;
+
+// Mesmo dado do site principal
+const ANDROID = [
+  { group:'Painel Android (Drip)', items:[
+    {name:'Painel Android',duration:'6H DRIP',      price:'R$ 15,00'},
+    {name:'Painel Android',duration:'12H DRIP',     price:'R$ 20,00'},
+    {name:'Painel Android',duration:'1 DIA DRIP',   price:'R$ 25,00'},
+    {name:'Painel Android',duration:'7 DIAS DRIP',  price:'R$ 75,00'},
+    {name:'Painel Android',duration:'30 DIAS DRIP', price:'R$ 130,00'},
+  ]},
+  { group:'Painel Mod APK', items:[
+    {name:'Painel Mod APK',duration:'1 DIA',       price:'R$ 19,00'},
+    {name:'Painel Mod APK',duration:'10 DIAS',     price:'R$ 49,00'},
+    {name:'Painel Mod APK',duration:'30 DIAS',     price:'R$ 79,00'},
+    {name:'Painel Mod APK',duration:'PERMANENTE',  price:'R$ 150,00'},
+  ]},
+  { group:'Proxy Menu Android', items:[
+    {name:'Proxy Menu Android',duration:'1 DIA',      price:'R$ 20,00'},
+    {name:'Proxy Menu Android',duration:'7 DIAS',     price:'R$ 50,00'},
+    {name:'Proxy Menu Android',duration:'30 DIAS',    price:'R$ 80,00'},
+    {name:'Proxy Menu Android',duration:'PERMANENTE', price:'R$ 200,00'},
+  ]},
+  { group:'HS Proxy Android', items:[
+    {name:'HS Proxy Android',duration:'1 DIA',   price:'R$ 20,00'},
+    {name:'HS Proxy Android',duration:'7 DIAS',  price:'R$ 50,00'},
+    {name:'HS Proxy Android',duration:'30 DIAS', price:'R$ 80,00'},
+  ]},
+];
+
+const IPHONE = [
+  { group:'Painel iOS Drip', items:[
+    {name:'Painel iOS Drip',duration:'6H',      price:'R$ 15,00'},
+    {name:'Painel iOS Drip',duration:'12H',     price:'R$ 20,00'},
+    {name:'Painel iOS Drip',duration:'1 DIA',   price:'R$ 25,00'},
+    {name:'Painel iOS Drip',duration:'7 DIAS',  price:'R$ 75,00'},
+    {name:'Painel iOS Drip',duration:'30 DIAS', price:'R$ 130,00'},
+  ]},
+  { group:'Painel iOS Safe', items:[
+    {name:'Painel iOS Safe',duration:'1 DIA',      price:'R$ 20,00'},
+    {name:'Painel iOS Safe',duration:'7 DIAS',     price:'R$ 55,00'},
+    {name:'Painel iOS Safe',duration:'30 DIAS',    price:'R$ 89,00'},
+    {name:'Painel iOS Safe',duration:'PERMANENTE', price:'R$ 250,00'},
+  ]},
+  { group:'HS iOS External', items:[
+    {name:'HS iOS External',duration:'1 DIA',      price:'R$ 15,00'},
+    {name:'HS iOS External',duration:'7 DIAS',     price:'R$ 40,00'},
+    {name:'HS iOS External',duration:'30 DIAS',    price:'R$ 70,00'},
+    {name:'HS iOS External',duration:'PERMANENTE', price:'R$ 150,00'},
+  ]},
+  { group:'HS Proxy iOS (WiFi)', items:[
+    {name:'HS Proxy iOS',duration:'1 DIA',   price:'R$ 20,00'},
+    {name:'HS Proxy iOS',duration:'7 DIAS',  price:'R$ 55,00'},
+    {name:'HS Proxy iOS',duration:'30 DIAS', price:'R$ 83,00'},
+  ]},
+];
+
+function slugify(str) {
+  return str.toLowerCase()
+    .replace(/[àáâã]/g,'a').replace(/[éê]/g,'e').replace(/[íï]/g,'i')
+    .replace(/[óôõ]/g,'o').replace(/[úü]/g,'u')
+    .replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+}
+
+function copyUrl(btn, url) {
+  navigator.clipboard.writeText(url).then(() => {
+    btn.textContent = 'Copiado!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copiar link'; btn.classList.remove('copied'); }, 2000);
+  }).catch(() => {
+    const ta = document.createElement('textarea');
+    ta.value = url;
+    ta.style.cssText = 'position:fixed;opacity:0;';
+    document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); document.body.removeChild(ta);
+    btn.textContent = 'Copiado!'; btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copiar link'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+function buildSection(groups, tabLabel) {
+  const section = document.createElement('div');
+  section.className = 'tab-section';
+  section.innerHTML = `<div class="tab-label">${tabLabel}</div>`;
+
+  groups.forEach(g => {
+    const block = document.createElement('div');
+    block.className = 'group-block';
+    block.innerHTML = `<div class="group-title">${g.group}</div>`;
+
+    g.items.forEach(p => {
+      const slug = slugify(g.group.replace(/painel|proxy|menu/gi,'').trim()) + '-' + slugify(p.duration);
+      const url  = BASE + '/#' + slug;
+
+      const row = document.createElement('div');
+      row.className = 'link-row';
+      row.innerHTML = `
+        <div class="link-info">
+          <strong>${p.name} — ${p.duration}</strong>
+          <div class="url">${url}</div>
+        </div>
+        <span class="price-tag">${p.price}</span>
+        <button class="btn-copy">Copiar link</button>`;
+      row.querySelector('.btn-copy').addEventListener('click', function(){ copyUrl(this, url); });
+      block.appendChild(row);
+    });
+
+    section.appendChild(block);
+  });
+
+  return section;
+}
+
+const list = document.getElementById('link-list');
+list.appendChild(buildSection(ANDROID, 'Android'));
+list.appendChild(buildSection(IPHONE,  'iPhone'));
+</script>
+</body>
+</html>
