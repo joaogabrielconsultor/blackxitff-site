@@ -6,645 +6,597 @@
 <title>Zoom Cheats — Painéis Free Fire iOS & Android</title>
 <meta name="description" content="Zoom Cheats: painéis para Free Fire com 100% headshot. iOS e Android. Pagamento via Pix.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <style>
 :root {
-  --bg:        #03060f;
-  --surface:   #060d1e;
-  --surface2:  #0a1530;
-  --border:    rgba(0,168,255,.15);
-  --blue:      #00a8ff;
-  --blue-dim:  #0073cc;
-  --blue-glow: rgba(0,168,255,.35);
-  --fg:        #e8f4ff;
-  --fg-muted:  #7ea8cc;
+  --bg:        #020812;
+  --bg2:       #03091a;
+  --surface:   #060f24;
+  --surface2:  #0b1a38;
+  --border:    rgba(0,168,255,.12);
+  --border2:   rgba(0,168,255,.28);
+  --blue:      #00aaff;
+  --blue2:     #0077dd;
+  --blue-glow: rgba(0,170,255,.4);
+  --cyan:      #00eeff;
+  --fg:        #e4f0ff;
+  --fg-muted:  #6a96bb;
   --green:     #00e676;
-  --font-d:    'Rajdhani', sans-serif;
+  --green-glow:rgba(0,230,118,.35);
+  --gold:      #ffcc00;
+  --font-d:    'Orbitron', 'Rajdhani', sans-serif;
+  --font-h:    'Rajdhani', sans-serif;
   --font-b:    'Inter', sans-serif;
   color-scheme: dark;
 }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-b);font-size:15px;line-height:1.55;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--bg);
-  color: var(--fg);
-  font-family: var(--font-b);
-  font-size: 15px;
-  line-height: 1.55;
-  overflow-x: hidden;
+/* ══════════════════════════════════════════
+   NAV
+══════════════════════════════════════════ */
+nav{
+  position:sticky;top:0;z-index:300;
+  background:rgba(2,8,18,.88);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:12px;padding:0 24px;height:58px;
 }
-
-img { max-width: 100%; display: block; }
-a { color: inherit; text-decoration: none; }
-button { font-family: inherit; cursor: pointer; }
-
-/* ── NAV ──────────────────────────────────────────────── */
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 200;
-  background: rgba(3,6,15,.9);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 20px;
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo img{height:38px;width:auto;object-fit:contain}
+.logo-name{
+  font-family:var(--font-d);font-size:15px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  background:linear-gradient(90deg,var(--blue),var(--cyan));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
 }
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--font-d);
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: .04em;
-  flex-shrink: 0;
+nav .spacer{flex:1}
+.nav-link{
+  display:flex;align-items:center;gap:6px;height:34px;padding:0 14px;
+  border:1px solid var(--border);border-radius:6px;
+  font-size:13px;font-weight:600;color:var(--fg-muted);background:none;
+  transition:border-color .2s,color .2s;
 }
-.logo img { height: 36px; width: auto; object-fit: contain; }
-.logo-text { display: none; }
-.logo img[src="logo.png"]:not([error]) + .logo-text { display: block; }
-
-nav .spacer { flex: 1; }
-
-.nav-support {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  height: 34px;
-  padding: 0 14px;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--fg-muted);
-  background: none;
-  transition: border-color .2s, color .2s;
+.nav-link:hover{border-color:var(--blue);color:var(--blue)}
+.nav-cta{
+  display:flex;align-items:center;gap:8px;height:36px;padding:0 18px;
+  background:linear-gradient(90deg,var(--blue2),var(--blue));
+  color:#fff;border:none;border-radius:7px;
+  font-family:var(--font-h);font-weight:700;font-size:14px;letter-spacing:.06em;
+  box-shadow:0 0 20px rgba(0,168,255,.35);
+  transition:box-shadow .2s,transform .15s;
 }
-.nav-support:hover { border-color: var(--blue); color: var(--blue); }
+.nav-cta:hover{box-shadow:0 0 32px rgba(0,168,255,.65);transform:translateY(-1px)}
 
-.nav-pix-btn {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  height: 34px;
-  padding: 0 16px;
-  background: var(--blue);
-  color: #000;
-  border: none;
-  border-radius: 6px;
-  font-family: var(--font-d);
-  font-weight: 700;
-  font-size: 14px;
-  letter-spacing: .04em;
-  box-shadow: 0 0 16px rgba(0,168,255,.4);
-  transition: box-shadow .2s, transform .15s;
+/* ══════════════════════════════════════════
+   HERO
+══════════════════════════════════════════ */
+.hero{
+  position:relative;overflow:hidden;
+  padding:80px 24px 64px;text-align:center;
+  background:linear-gradient(180deg,#020c20 0%,var(--bg) 100%);
 }
-.nav-pix-btn:hover { box-shadow: 0 0 28px rgba(0,168,255,.7); transform: translateY(-1px); }
-
-/* ── HERO ─────────────────────────────────────────────── */
-.hero {
-  position: relative;
-  overflow: hidden;
-  padding: 64px 20px 52px;
-  text-align: center;
-}
-
-.hero-grid {
-  position: absolute;
-  inset: 0;
+/* grid lines */
+.hero::before{
+  content:'';position:absolute;inset:0;
   background-image:
-    linear-gradient(rgba(0,168,255,.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,168,255,.05) 1px, transparent 1px);
-  background-size: 48px 48px;
-  animation: grid-move 24s linear infinite;
+    linear-gradient(rgba(0,170,255,.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,170,255,.06) 1px,transparent 1px);
+  background-size:56px 56px;
+  animation:grid-drift 20s linear infinite;
 }
-.hero-glow {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 70% 50% at 50% 50%, rgba(0,80,200,.22) 0%, transparent 70%);
-  animation: glow-pulse 5s ease-in-out infinite alternate;
+/* glow orb */
+.hero::after{
+  content:'';position:absolute;
+  top:-20%;left:50%;transform:translateX(-50%);
+  width:800px;height:500px;
+  background:radial-gradient(ellipse 60% 50% at 50% 40%,rgba(0,100,220,.25) 0%,transparent 70%);
+  animation:orb-pulse 6s ease-in-out infinite alternate;
 }
-@keyframes grid-move { to { background-position: 0 48px; } }
-@keyframes glow-pulse { from { opacity: .5; } to { opacity: 1; } }
-@media (prefers-reduced-motion: reduce) {
-  .hero-grid, .hero-glow { animation: none; }
+@keyframes grid-drift{to{background-position:56px 56px}}
+@keyframes orb-pulse{from{opacity:.5;transform:translateX(-50%) scale(1)}to{opacity:1;transform:translateX(-50%) scale(1.08)}}
+@media(prefers-reduced-motion:reduce){.hero::before,.hero::after{animation:none}}
+
+.hero-inner{position:relative;z-index:1;max-width:680px;margin:0 auto}
+
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--cyan);border:1px solid rgba(0,238,255,.25);
+  border-radius:20px;padding:5px 16px;margin-bottom:32px;
+  background:rgba(0,238,255,.06);
+}
+.live-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--cyan);box-shadow:0 0 10px var(--cyan);
+  animation:blink 1.3s step-end infinite;
+}
+@keyframes blink{50%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.live-dot{animation:none}}
+
+.hero h1{
+  font-family:var(--font-d);
+  font-size:clamp(2rem,6vw,3.6rem);
+  font-weight:900;line-height:1.05;
+  color:var(--fg);margin-bottom:18px;
+  text-shadow:0 0 60px rgba(0,168,255,.2);
+  letter-spacing:.02em;
+}
+.hero h1 em{
+  font-style:normal;display:block;
+  background:linear-gradient(90deg,var(--blue),var(--cyan));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  filter:drop-shadow(0 0 18px rgba(0,200,255,.5));
 }
 
-.hero-inner {
-  position: relative;
-  z-index: 1;
-  max-width: 640px;
-  margin: 0 auto;
+.hero-sub{
+  font-size:16px;color:var(--fg-muted);
+  max-width:500px;margin:0 auto 40px;line-height:1.7;
 }
 
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--blue);
-  border: 1px solid rgba(0,168,255,.28);
-  border-radius: 20px;
-  padding: 5px 14px;
-  margin-bottom: 28px;
+.hero-actions{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:10px;
+  height:52px;padding:0 32px;
+  background:linear-gradient(135deg,var(--blue2),var(--blue));
+  color:#fff;font-family:var(--font-h);font-weight:700;font-size:16px;
+  letter-spacing:.08em;border:none;border-radius:8px;
+  box-shadow:0 0 32px rgba(0,168,255,.5),0 4px 24px rgba(0,0,0,.4);
+  transition:box-shadow .2s,transform .15s;position:relative;overflow:hidden;
 }
-.live-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--blue);
-  box-shadow: 0 0 8px var(--blue);
-  animation: blink 1.4s step-end infinite;
+.btn-primary::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,.15),transparent);
 }
-@keyframes blink { 50% { opacity: 0; } }
-@media (prefers-reduced-motion: reduce) { .live-dot { animation: none; } }
+.btn-primary:hover{box-shadow:0 0 48px rgba(0,168,255,.75),0 4px 28px rgba(0,0,0,.5);transform:translateY(-2px)}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  height:52px;padding:0 24px;background:none;color:var(--fg-muted);
+  font-size:14px;font-weight:600;border:1px solid var(--border2);border-radius:8px;
+  transition:border-color .2s,color .2s,background .2s;
+}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue);background:rgba(0,168,255,.06)}
 
-.hero h1 {
-  font-family: var(--font-d);
-  font-size: clamp(2.4rem, 7vw, 4rem);
-  font-weight: 700;
-  line-height: 1.05;
-  color: var(--fg);
-  margin-bottom: 16px;
-  text-shadow: 0 0 40px rgba(0,168,255,.25);
+/* stats */
+.hero-stats{
+  display:flex;justify-content:center;gap:0;
+  margin-top:56px;padding-top:36px;
+  border-top:1px solid var(--border);flex-wrap:wrap;
 }
-.hero h1 em {
-  font-style: normal;
-  color: var(--blue);
-  text-shadow: 0 0 24px rgba(0,168,255,.8), 0 0 48px rgba(0,168,255,.3);
+.stat-item{
+  padding:0 36px;text-align:center;
+  border-right:1px solid var(--border);
 }
+.stat-item:last-child{border-right:none}
+.stat-num{
+  font-family:var(--font-d);font-size:2rem;font-weight:700;
+  color:var(--blue);text-shadow:0 0 20px var(--blue-glow);
+  line-height:1;
+}
+.stat-label{font-size:11px;color:var(--fg-muted);margin-top:5px;letter-spacing:.04em}
 
-.hero-sub {
-  font-size: 15px;
-  color: var(--fg-muted);
-  max-width: 480px;
-  margin: 0 auto 36px;
+/* ══════════════════════════════════════════
+   SCROLL TICKER
+══════════════════════════════════════════ */
+.ticker-wrap{
+  background:linear-gradient(90deg,var(--blue2),var(--blue),var(--cyan),var(--blue),var(--blue2));
+  background-size:300% 100%;animation:gradient-shift 6s linear infinite;
+  padding:9px 0;overflow:hidden;white-space:nowrap;
 }
+@keyframes gradient-shift{to{background-position:300% 0}}
+.ticker-inner{display:inline-flex;gap:0;animation:ticker 30s linear infinite}
+.ticker-item{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--font-h);font-weight:700;font-size:12px;
+  letter-spacing:.1em;text-transform:uppercase;color:#000;
+  padding:0 28px;
+}
+.ticker-sep{color:rgba(0,0,0,.4)}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.ticker-inner{animation:none}}
 
-.hero-actions {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
+/* ══════════════════════════════════════════
+   FEATURES
+══════════════════════════════════════════ */
+.features{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1px;background:var(--border);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
 }
+.feature-item{
+  background:var(--bg2);padding:22px 24px;
+  display:flex;align-items:center;gap:14px;
+  transition:background .2s;
+}
+.feature-item:hover{background:var(--surface)}
+.feature-icon{
+  width:40px;height:40px;border-radius:10px;flex-shrink:0;
+  background:rgba(0,168,255,.1);border:1px solid rgba(0,168,255,.2);
+  display:grid;place-items:center;font-size:18px;
+}
+.feature-text strong{display:block;font-weight:600;font-size:13px;color:var(--fg);margin-bottom:2px}
+.feature-text span{font-size:12px;color:var(--fg-muted)}
 
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  height: 48px;
-  padding: 0 28px;
-  background: var(--blue);
-  color: #000;
-  font-family: var(--font-d);
-  font-weight: 700;
-  font-size: 15px;
-  letter-spacing: .06em;
-  border: none;
-  border-radius: 7px;
-  box-shadow: 0 0 28px rgba(0,168,255,.5), 0 0 60px rgba(0,168,255,.15);
-  transition: box-shadow .2s, transform .15s;
-}
-.btn-primary:hover { box-shadow: 0 0 40px rgba(0,168,255,.7); transform: translateY(-2px); }
+/* ══════════════════════════════════════════
+   SHOP
+══════════════════════════════════════════ */
+.shop-section{max-width:1200px;margin:0 auto;padding:56px 24px 80px}
 
-.btn-ghost {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  height: 48px;
-  padding: 0 24px;
-  background: none;
-  color: var(--fg-muted);
-  font-size: 14px;
-  font-weight: 600;
-  border: 1px solid var(--border);
-  border-radius: 7px;
-  transition: border-color .2s, color .2s;
+.section-header{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:32px;flex-wrap:wrap}
+.section-title{
+  font-family:var(--font-d);font-size:1.5rem;font-weight:700;
+  letter-spacing:.04em;color:var(--fg);
 }
-.btn-ghost:hover { border-color: var(--blue); color: var(--blue); }
+.section-title span{
+  background:linear-gradient(90deg,var(--blue),var(--cyan));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.section-sub{font-size:13px;color:var(--fg-muted)}
 
-.hero-stats {
-  display: flex;
-  justify-content: center;
-  gap: 48px;
-  margin-top: 52px;
-  padding-top: 32px;
-  border-top: 1px solid var(--border);
-  flex-wrap: wrap;
+/* tabs */
+.tabs{
+  display:flex;gap:4px;margin-bottom:32px;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:10px;padding:4px;width:fit-content;
 }
-.stat-num {
-  font-family: var(--font-d);
-  font-size: 1.9rem;
-  font-weight: 700;
-  color: var(--blue);
-  text-shadow: 0 0 16px var(--blue-glow);
+.tab-btn{
+  display:flex;align-items:center;gap:8px;
+  padding:9px 22px;background:none;border:none;
+  color:var(--fg-muted);font-family:var(--font-h);
+  font-weight:600;font-size:15px;letter-spacing:.05em;
+  white-space:nowrap;border-radius:7px;
+  transition:background .2s,color .2s,box-shadow .2s;
 }
-.stat-label { font-size: 12px; color: var(--fg-muted); margin-top: 3px; }
+.tab-btn:hover{color:var(--fg)}
+.tab-btn.active{
+  background:linear-gradient(135deg,var(--blue2),var(--blue));
+  color:#fff;box-shadow:0 0 20px rgba(0,168,255,.3);
+}
+.tab-count{
+  font-size:10px;background:rgba(255,255,255,.15);
+  border-radius:8px;padding:1px 6px;font-family:var(--font-b);font-weight:700;
+}
+.tab-btn:not(.active) .tab-count{background:var(--surface2);color:var(--fg-muted)}
 
-/* ── TRUST BAR ────────────────────────────────────────── */
-.trust-bar {
-  background: var(--surface);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: 14px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 32px;
-  flex-wrap: wrap;
-  overflow: hidden;
-}
-.trust-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--fg-muted);
-  white-space: nowrap;
-}
-.trust-item span { font-size: 16px; }
+.tab-panel{display:none}
+.tab-panel.active{display:block}
 
-/* ── TABS ─────────────────────────────────────────────── */
-.shop-section { max-width: 1100px; margin: 0 auto; padding: 44px 20px 60px; }
-
-.shop-heading {
-  font-family: var(--font-d);
-  font-size: 1.6rem;
-  font-weight: 700;
-  letter-spacing: .04em;
-  color: var(--fg);
-  margin-bottom: 24px;
+/* ── GROUP HEADER ─ */
+.product-group{margin-bottom:48px}
+.group-label{
+  display:flex;align-items:center;gap:12px;
+  font-family:var(--font-h);font-size:.95rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--blue);
+  margin-bottom:18px;
 }
-.shop-heading span { color: var(--blue); }
-
-.tabs {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 28px;
-  border-bottom: 1px solid var(--border);
-  overflow-x: auto;
-  scrollbar-width: none;
+.group-label::before{
+  content:'';width:4px;height:18px;
+  background:linear-gradient(180deg,var(--blue),var(--cyan));
+  border-radius:4px;flex-shrink:0;
 }
-.tabs::-webkit-scrollbar { display: none; }
-
-.tab-btn {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  padding: 10px 18px;
-  background: none;
-  border: none;
-  border-bottom: 2px solid transparent;
-  color: var(--fg-muted);
-  font-family: var(--font-d);
-  font-weight: 600;
-  font-size: 15px;
-  letter-spacing: .05em;
-  white-space: nowrap;
-  transition: color .2s, border-color .2s;
-  margin-bottom: -1px;
-}
-.tab-btn:hover { color: var(--fg); }
-.tab-btn.active { color: var(--blue); border-color: var(--blue); }
-.tab-count {
-  font-size: 11px;
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 1px 6px;
-  color: var(--fg-muted);
-}
-.tab-btn.active .tab-count { background: rgba(0,168,255,.12); border-color: rgba(0,168,255,.3); color: var(--blue); }
-
-.tab-panel { display: none; }
-.tab-panel.active { display: block; }
-
-/* ── PRODUCT GROUPS ───────────────────────────────────── */
-.product-group { margin-bottom: 40px; }
-.group-label {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--font-d);
-  font-size: .85rem;
-  font-weight: 600;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: var(--fg-muted);
-  margin-bottom: 14px;
-}
-.group-label::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--border);
+.group-label::after{
+  content:'';flex:1;height:1px;
+  background:linear-gradient(90deg,rgba(0,168,255,.3),transparent);
 }
 
-/* ── PRODUCT CARDS ────────────────────────────────────── */
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-  gap: 12px;
+/* ── CARDS GRID ─ */
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:14px;
 }
 
-.product-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: border-color .2s, transform .15s, box-shadow .2s;
-  cursor: pointer;
+.product-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:14px;overflow:hidden;
+  display:flex;flex-direction:column;
+  transition:border-color .25s,transform .2s,box-shadow .25s;
+  cursor:pointer;position:relative;
 }
-.product-card:hover {
-  border-color: rgba(0,168,255,.5);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 32px rgba(0,168,255,.12);
+.product-card::before{
+  content:'';position:absolute;inset:0;border-radius:14px;
+  background:linear-gradient(135deg,rgba(0,168,255,.04) 0%,transparent 60%);
+  pointer-events:none;
 }
-
-.product-thumb {
-  background: var(--surface2);
-  aspect-ratio: 1;
-  display: grid;
-  place-items: center;
-  position: relative;
-  overflow: hidden;
-}
-.product-thumb::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(0,100,200,.18) 0%, transparent 70%);
-}
-.thumb-icon { font-size: 2.2rem; position: relative; z-index: 1; }
-
-.product-body {
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  flex: 1;
+.product-card:hover{
+  border-color:rgba(0,168,255,.55);
+  transform:translateY(-4px);
+  box-shadow:0 12px 40px rgba(0,168,255,.15),0 4px 16px rgba(0,0,0,.4);
 }
 
-.product-name {
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--fg);
-  line-height: 1.4;
+/* image area */
+.product-thumb{
+  position:relative;overflow:hidden;
+  background:var(--surface2);
+  height:160px;
 }
-.product-duration {
-  font-size: 11px;
-  color: var(--blue);
-  font-weight: 600;
-  letter-spacing: .05em;
+.product-thumb img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .35s;
 }
-
-.product-price {
-  display: flex;
-  align-items: baseline;
-  gap: 6px;
+.product-card:hover .product-thumb img{transform:scale(1.07)}
+.thumb-icon{
+  display:grid;place-items:center;height:100%;
+  font-size:2.8rem;
+  background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(0,100,200,.18) 0%,transparent 70%);
 }
-.price-now {
-  font-family: var(--font-d);
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--green);
-  text-shadow: 0 0 12px rgba(0,230,118,.3);
+/* overlay shine */
+.product-thumb::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 40%,rgba(2,8,18,.8) 100%);
 }
-.price-pix { font-size: 10px; color: var(--fg-muted); }
-
-.btn-buy {
-  margin-top: auto;
-  width: 100%;
-  height: 36px;
-  background: transparent;
-  border: 1px solid var(--blue);
-  border-radius: 6px;
-  color: var(--blue);
-  font-family: var(--font-d);
-  font-weight: 700;
-  font-size: 13px;
-  letter-spacing: .05em;
-  transition: background .2s, color .2s, box-shadow .2s;
-}
-.btn-buy:hover {
-  background: var(--blue);
-  color: #000;
-  box-shadow: 0 0 18px rgba(0,168,255,.4);
+/* duration badge on image */
+.product-thumb .dur-badge{
+  position:absolute;bottom:8px;left:8px;z-index:1;
+  font-family:var(--font-h);font-size:11px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  background:rgba(0,170,255,.85);color:#fff;
+  padding:3px 9px;border-radius:5px;
+  backdrop-filter:blur(4px);
 }
 
-/* ── PIX MODAL ────────────────────────────────────────── */
-.modal-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 999;
-  background: rgba(0,0,0,.8);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
+/* body */
+.product-body{padding:14px;display:flex;flex-direction:column;gap:8px;flex:1}
+.product-name{font-size:13px;font-weight:600;color:var(--fg);line-height:1.35}
+.product-price-row{display:flex;align-items:center;justify-content:space-between;margin-top:2px}
+.price-now{
+  font-family:var(--font-h);font-size:1.3rem;font-weight:700;
+  color:var(--green);text-shadow:0 0 14px var(--green-glow);
 }
-.modal-overlay.open { display: flex; }
-
-.modal-box {
-  background: var(--surface);
-  border: 1px solid rgba(0,168,255,.25);
-  border-radius: 18px;
-  max-width: 420px;
-  width: 100%;
-  padding: 30px 24px 24px;
-  position: relative;
-  box-shadow: 0 0 60px rgba(0,168,255,.2), 0 24px 80px rgba(0,0,0,.6);
-  animation: modal-in .25s cubic-bezier(.34,1.4,.64,1);
-}
-@keyframes modal-in { from { transform: scale(.92); opacity: 0; } }
-
-.modal-close {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  color: var(--fg-muted);
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  font-size: 16px;
-  display: grid;
-  place-items: center;
-  transition: border-color .2s, color .2s;
-}
-.modal-close:hover { border-color: var(--blue); color: var(--blue); }
-
-.modal-header { text-align: center; margin-bottom: 22px; }
-.modal-icon { font-size: 44px; margin-bottom: 10px; }
-.modal-title {
-  font-family: var(--font-d);
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--blue);
-  letter-spacing: .5px;
-}
-.modal-product {
-  font-size: 13px;
-  color: var(--fg-muted);
-  margin-top: 4px;
+.price-pix{
+  font-size:10px;color:var(--fg-muted);
+  background:rgba(0,230,118,.08);border:1px solid rgba(0,230,118,.15);
+  border-radius:5px;padding:2px 7px;
 }
 
-.modal-value-box {
-  background: var(--surface2);
-  border: 1px solid rgba(0,230,118,.2);
-  border-radius: 10px;
-  padding: 16px;
-  text-align: center;
-  margin-bottom: 14px;
+.btn-buy{
+  margin-top:auto;width:100%;height:38px;
+  background:linear-gradient(135deg,rgba(0,119,221,.6),rgba(0,170,255,.6));
+  border:1px solid rgba(0,170,255,.5);border-radius:8px;
+  color:#fff;font-family:var(--font-h);font-weight:700;font-size:13px;
+  letter-spacing:.07em;
+  transition:background .2s,border-color .2s,box-shadow .2s,transform .1s;
+  backdrop-filter:blur(4px);
 }
-.modal-value-label { font-size: 11px; color: var(--fg-muted); margin-bottom: 4px; }
-.modal-value {
-  font-family: var(--font-d);
-  font-size: 36px;
-  font-weight: 700;
-  color: var(--green);
-  text-shadow: 0 0 20px rgba(0,230,118,.3);
+.btn-buy:hover{
+  background:linear-gradient(135deg,var(--blue2),var(--blue));
+  border-color:var(--blue);
+  box-shadow:0 0 20px rgba(0,168,255,.45);
+  transform:translateY(-1px);
 }
-.modal-pix-note { font-size: 11px; color: var(--fg-muted); margin-top: 4px; }
+.btn-buy:active{transform:translateY(0)}
 
-.modal-qr-wrap {
-  text-align: center;
-  margin-bottom: 14px;
+/* ── DESC MODAL ─ */
+#desc-modal{
+  display:none;position:fixed;inset:0;z-index:998;
+  background:rgba(0,0,0,.8);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  align-items:center;justify-content:center;padding:16px;
 }
-.modal-qr-label {
-  font-size: 11px;
-  color: var(--fg-muted);
-  margin-bottom: 10px;
+#desc-modal.open{display:flex}
+.desc-box{
+  background:linear-gradient(160deg,#07122a,#030a1a);
+  border:1px solid rgba(0,170,255,.3);border-radius:20px;
+  max-width:480px;width:100%;padding:28px 24px 24px;
+  position:relative;max-height:88vh;overflow-y:auto;
+  box-shadow:0 0 60px rgba(0,170,255,.18),0 24px 60px rgba(0,0,0,.6);
+  animation:modal-pop .28s cubic-bezier(.34,1.5,.64,1);
 }
-.modal-qr {
-  display: inline-block;
-  background: #fff;
-  border-radius: 12px;
-  padding: 10px;
-  box-shadow: 0 0 24px rgba(0,168,255,.25);
+.desc-box::before{
+  content:'';position:absolute;top:0;left:20%;right:20%;height:2px;
+  background:linear-gradient(90deg,transparent,var(--blue),var(--cyan),var(--blue),transparent);
+  border-radius:0 0 4px 4px;
 }
-.modal-qr canvas, .modal-qr img { display: block; border-radius: 4px; }
+.desc-close{
+  position:absolute;top:12px;right:12px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  color:var(--fg-muted);width:30px;height:30px;border-radius:50%;
+  font-size:15px;display:grid;place-items:center;cursor:pointer;
+  transition:border-color .2s,color .2s;
+}
+.desc-close:hover{border-color:var(--blue);color:var(--blue)}
+.desc-group{
+  font-family:var(--font-h);font-size:.85rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:14px;
+}
+.desc-text{
+  font-size:13px;line-height:1.75;color:var(--fg-muted);
+  white-space:pre-line;margin-bottom:20px;
+}
+.desc-text strong{color:var(--fg)}
+.desc-plans{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.desc-plan{
+  display:flex;align-items:center;justify-content:space-between;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:10px;padding:12px 14px;
+  transition:border-color .2s,background .2s;cursor:pointer;
+}
+.desc-plan:hover{border-color:rgba(0,168,255,.5);background:var(--surface2)}
+.desc-plan-dur{font-family:var(--font-h);font-weight:700;font-size:13px;letter-spacing:.06em;color:var(--fg)}
+.desc-plan-price{font-family:var(--font-d);font-size:1.1rem;font-weight:700;color:var(--green);text-shadow:0 0 10px var(--green-glow)}
+.desc-plan-btn{
+  font-size:11px;font-weight:700;letter-spacing:.06em;
+  background:linear-gradient(135deg,var(--blue2),var(--blue));
+  color:#fff;border:none;border-radius:6px;padding:5px 12px;cursor:pointer;
+  transition:box-shadow .2s;
+}
+.desc-plan-btn:hover{box-shadow:0 0 14px rgba(0,168,255,.5)}
 
-.modal-key-box {
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 14px;
-  margin-bottom: 14px;
+.btn-details{
+  width:100%;height:30px;margin-top:6px;
+  background:none;border:1px solid rgba(0,168,255,.25);border-radius:7px;
+  color:var(--fg-muted);font-size:11px;font-weight:600;letter-spacing:.05em;
+  transition:border-color .2s,color .2s,background .2s;
 }
-.modal-key-label { font-size: 11px; color: var(--fg-muted); margin-bottom: 8px; }
-.modal-key-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.modal-key-value {
-  flex: 1;
-  font-size: 14px;
-  color: var(--fg);
-  font-weight: 600;
-  word-break: break-all;
-  background: none;
-  border: none;
-  font-family: var(--font-b);
-}
-.btn-copy {
-  flex-shrink: 0;
-  height: 34px;
-  padding: 0 14px;
-  background: var(--blue);
-  color: #000;
-  border: none;
-  border-radius: 7px;
-  font-weight: 700;
-  font-size: 13px;
-  transition: background .2s, color .2s;
-}
-.btn-copy.copied { background: var(--green); color: #000; }
+.btn-details:hover{border-color:var(--blue);color:var(--blue);background:rgba(0,168,255,.06)}
 
-.modal-steps {
-  background: rgba(0,168,255,.06);
-  border: 1px solid rgba(0,168,255,.15);
-  border-radius: 10px;
-  padding: 12px 14px;
-  font-size: 12px;
-  color: var(--fg-muted);
-  line-height: 1.8;
-  margin-bottom: 14px;
+/* ══════════════════════════════════════════
+   PIX MODAL
+══════════════════════════════════════════ */
+.modal-overlay{
+  display:none;position:fixed;inset:0;z-index:999;
+  background:rgba(0,0,0,.85);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  align-items:center;justify-content:center;padding:16px;
 }
-.modal-steps strong { color: var(--blue); }
+.modal-overlay.open{display:flex}
 
-.btn-whatsapp {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-  height: 46px;
-  background: linear-gradient(135deg,#25d366,#128c7e);
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  font-family: var(--font-d);
-  font-weight: 700;
-  font-size: 15px;
-  letter-spacing: .04em;
-  box-shadow: 0 4px 20px rgba(37,211,102,.25);
-  transition: box-shadow .2s, transform .15s;
+.modal-box{
+  background:linear-gradient(160deg,#07122a,#030a1a);
+  border:1px solid rgba(0,170,255,.3);
+  border-radius:20px;max-width:440px;width:100%;
+  padding:32px 26px 26px;position:relative;
+  box-shadow:0 0 0 1px rgba(0,238,255,.06),0 0 80px rgba(0,170,255,.2),0 32px 80px rgba(0,0,0,.7);
+  animation:modal-pop .3s cubic-bezier(.34,1.5,.64,1);
+  max-height:90vh;overflow-y:auto;
 }
-.btn-whatsapp:hover { box-shadow: 0 4px 30px rgba(37,211,102,.4); transform: translateY(-1px); }
+@keyframes modal-pop{from{transform:scale(.88) translateY(16px);opacity:0}}
 
-/* ── FOOTER ───────────────────────────────────────────── */
-footer {
-  border-top: 1px solid var(--border);
-  padding: 28px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 16px;
+/* top accent line */
+.modal-box::before{
+  content:'';position:absolute;top:0;left:20%;right:20%;height:2px;
+  background:linear-gradient(90deg,transparent,var(--blue),var(--cyan),var(--blue),transparent);
+  border-radius:0 0 4px 4px;
 }
-.footer-brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.footer-brand img { height: 28px; width: auto; }
-.footer-brand span {
-  font-family: var(--font-d);
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--fg-muted);
-}
-footer p { font-size: 12px; color: var(--fg-muted); }
 
-/* ── RESPONSIVE ───────────────────────────────────────── */
-@media (max-width: 600px) {
-  .hero { padding: 44px 16px 36px; }
-  .hero-stats { gap: 24px; margin-top: 36px; }
-  .trust-bar { gap: 16px; }
-  .shop-section { padding: 32px 16px 48px; }
-  .product-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-  .modal-box { padding: 24px 18px 18px; }
-  .modal-value { font-size: 30px; }
-  footer { flex-direction: column; align-items: flex-start; gap: 12px; }
+.modal-close{
+  position:absolute;top:14px;right:14px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  color:var(--fg-muted);width:32px;height:32px;border-radius:50%;
+  font-size:16px;display:grid;place-items:center;
+  transition:border-color .2s,color .2s,background .2s;
+}
+.modal-close:hover{border-color:var(--blue);color:var(--blue);background:rgba(0,168,255,.1)}
+
+/* header */
+.modal-header{text-align:center;margin-bottom:20px}
+.modal-pix-icon{
+  width:56px;height:56px;border-radius:16px;
+  background:linear-gradient(135deg,var(--blue2),var(--blue));
+  display:grid;place-items:center;margin:0 auto 12px;
+  box-shadow:0 0 28px rgba(0,168,255,.4);font-size:26px;
+}
+.modal-title{
+  font-family:var(--font-d);font-size:18px;font-weight:700;
+  color:var(--fg);letter-spacing:.05em;
+}
+.modal-product{
+  font-size:12px;color:var(--fg-muted);margin-top:4px;
+  font-family:var(--font-h);font-weight:600;letter-spacing:.06em;
+  text-transform:uppercase;
+}
+
+/* value box */
+.modal-value-box{
+  background:linear-gradient(135deg,rgba(0,230,118,.08),rgba(0,230,118,.04));
+  border:1px solid rgba(0,230,118,.22);
+  border-radius:12px;padding:16px;text-align:center;margin-bottom:16px;
+}
+.modal-value-label{font-size:10px;color:var(--fg-muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+.modal-value{
+  font-family:var(--font-d);font-size:38px;font-weight:700;
+  color:var(--green);text-shadow:0 0 24px var(--green-glow);
+  line-height:1;
+}
+.modal-pix-note{font-size:11px;color:rgba(0,230,118,.7);margin-top:6px}
+
+/* qr */
+.modal-qr-wrap{text-align:center;margin-bottom:16px}
+.modal-qr-label{
+  font-size:11px;color:var(--fg-muted);margin-bottom:10px;
+  letter-spacing:.05em;
+}
+.modal-qr{
+  display:inline-block;background:#fff;
+  border-radius:14px;padding:12px;
+  box-shadow:0 0 0 4px rgba(0,170,255,.12),0 0 30px rgba(0,168,255,.2);
+}
+.modal-qr canvas,.modal-qr img{display:block;border-radius:6px}
+
+/* copia e cola */
+.modal-key-box{
+  background:rgba(0,170,255,.05);
+  border:1px solid rgba(0,170,255,.18);
+  border-radius:12px;padding:14px;margin-bottom:14px;
+}
+.modal-key-label{font-size:10px;color:var(--fg-muted);margin-bottom:8px;letter-spacing:.08em;text-transform:uppercase}
+.modal-key-row{display:flex;align-items:flex-start;gap:10px}
+.modal-key-value{
+  flex:1;font-size:9.5px;color:var(--fg-muted);
+  word-break:break-all;font-family:monospace;line-height:1.5;
+  background:none;border:none;
+}
+.btn-copy{
+  flex-shrink:0;height:34px;padding:0 14px;
+  background:linear-gradient(135deg,var(--blue2),var(--blue));
+  color:#fff;border:none;border-radius:7px;
+  font-weight:700;font-size:12px;letter-spacing:.05em;
+  transition:box-shadow .2s,transform .1s;
+  white-space:nowrap;
+}
+.btn-copy:hover{box-shadow:0 0 16px rgba(0,168,255,.45);transform:translateY(-1px)}
+.btn-copy.copied{background:linear-gradient(135deg,#00a855,var(--green));color:#000}
+
+/* whatsapp */
+.btn-whatsapp{
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  width:100%;height:48px;
+  background:linear-gradient(135deg,#1da851,#25d366);
+  color:#fff;border:none;border-radius:12px;
+  font-family:var(--font-h);font-weight:700;font-size:15px;letter-spacing:.05em;
+  box-shadow:0 4px 24px rgba(37,211,102,.3);
+  transition:box-shadow .2s,transform .15s;
+}
+.btn-whatsapp:hover{box-shadow:0 4px 36px rgba(37,211,102,.5);transform:translateY(-1px)}
+
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+footer{
+  background:var(--bg2);
+  border-top:1px solid var(--border);
+  padding:32px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:20px;
+}
+.footer-brand{display:flex;align-items:center;gap:12px}
+.footer-brand img{height:30px;width:auto}
+.footer-brand-name{
+  font-family:var(--font-d);font-size:14px;font-weight:700;
+  letter-spacing:.1em;
+  background:linear-gradient(90deg,var(--blue),var(--cyan));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.footer-links{display:flex;gap:24px}
+.footer-links a{font-size:12px;color:var(--fg-muted);transition:color .2s}
+.footer-links a:hover{color:var(--blue)}
+footer .copy{font-size:11px;color:rgba(106,150,187,.45)}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media(max-width:640px){
+  .hero{padding:56px 16px 44px}
+  .hero h1{font-size:1.9rem}
+  .stat-item{padding:0 18px}
+  .stat-num{font-size:1.5rem}
+  .shop-section{padding:36px 16px 56px}
+  .product-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .product-thumb{height:130px}
+  .section-header{flex-direction:column;align-items:flex-start}
+  .modal-box{padding:26px 18px 20px}
+  .modal-value{font-size:32px}
+  footer{flex-direction:column;gap:16px}
+  .footer-links{gap:16px}
+}
+@media(max-width:380px){
+  .product-grid{grid-template-columns:1fr 1fr;gap:8px}
+  .price-now{font-size:1.1rem}
 }
 </style>
 </head>
@@ -654,30 +606,27 @@ footer p { font-size: 12px; color: var(--fg-muted); }
 <nav>
   <div class="logo">
     <img src="logo.png" alt="Zoom Cheats" onerror="this.style.display='none'">
-    <span class="logo-text">ZOOM CHEATS</span>
+    <span class="logo-name">Zoom Cheats</span>
   </div>
   <div class="spacer"></div>
-  <button class="nav-support" onclick="openWhats()">
-    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 1C3.91 1 1 3.91 1 7.5c0 1.16.3 2.26.84 3.2L1 14l3.38-.82A6.48 6.48 0 0 0 7.5 14C11.09 14 14 11.09 14 7.5S11.09 1 7.5 1z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M5.5 6c0-.27.22-.5.5-.5h.02c.27 0 .5.23.5.5v.5c0 .3-.13.58-.35.77L5.8 8.1C6.1 8.7 6.62 9.22 7.17 9.5l.53-.52c.2-.2.47-.28.75-.28h.05c.28 0 .5.22.5.5v1c0 .27-.22.5-.5.5A4.5 4.5 0 0 1 4 6.5c0-.28.22-.5.5-.5h1z" fill="currentColor"/></svg>
+  <button class="nav-link" onclick="openWhats()">
+    <svg width="14" height="14" viewBox="0 0 18 18" fill="none"><path d="M9 1C4.6 1 1 4.6 1 9c0 1.4.37 2.72 1.01 3.87L1 17l4.22-.99A8 8 0 0 0 9 17c4.4 0 8-3.6 8-8S13.4 1 9 1z" fill="currentColor" opacity=".85"/><path d="M6.5 7.2c0-.3.25-.55.55-.55h.05c.3 0 .55.25.55.55v.55c0 .34-.14.65-.38.87L6.9 9.4c.32.66.93 1.27 1.54 1.57l.58-.57c.22-.2.52-.32.84-.32h.06c.3 0 .55.25.55.55v1.1c0 .3-.25.55-.55.55A5 5 0 0 1 4.9 7.75c0-.3.25-.55.55-.55H6.5z" fill="#000"/></svg>
     Suporte
   </button>
-  <button class="nav-pix-btn" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">
-    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1l1.6 3.3 3.4.5-2.5 2.4.6 3.4L7 9l-3.1 1.6.6-3.4L2 4.8l3.4-.5z" fill="currentColor"/></svg>
-    Ver Produtos
+  <button class="nav-cta" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">
+    ⚡ Ver Produtos
   </button>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-glow"></div>
   <div class="hero-inner">
     <div class="hero-badge">
       <span class="live-dot"></span>
-      Painéis disponíveis agora
+      Painéis online agora
     </div>
     <h1>Precisão em<br><em>Cada Capa</em></h1>
-    <p class="hero-sub">Painéis exclusivos para Free Fire com bypass total nos analistas. iOS e Android. Ative em minutos via Pix.</p>
+    <p class="hero-sub">Painéis exclusivos para Free Fire com bypass completo. iOS e Android. Ativação imediata via Pix.</p>
     <div class="hero-actions">
       <button class="btn-primary" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 2h1.5l.8 4m0 0L5.5 11h7L14 6H4.3z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="13" r="1" fill="currentColor"/><circle cx="11" cy="13" r="1" fill="currentColor"/></svg>
@@ -688,41 +637,82 @@ footer p { font-size: 12px; color: var(--fg-muted); }
       </button>
     </div>
     <div class="hero-stats">
-      <div>
+      <div class="stat-item">
         <div class="stat-num">100%</div>
-        <div class="stat-label">Headshot garantido</div>
+        <div class="stat-label">Headshot</div>
       </div>
-      <div>
-        <div class="stat-num">a partir de</div>
-        <div class="stat-label" style="font-size:18px;font-family:var(--font-d);font-weight:700;color:var(--green);">R$ 15,00</div>
+      <div class="stat-item">
+        <div class="stat-num" style="font-size:1.3rem;color:var(--green)">R$15</div>
+        <div class="stat-label">A partir de</div>
       </div>
-      <div>
-        <div class="stat-num">2 plat.</div>
-        <div class="stat-label">iOS + Android</div>
+      <div class="stat-item">
+        <div class="stat-num">2</div>
+        <div class="stat-label">Plataformas</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" style="color:var(--cyan)">24h</div>
+        <div class="stat-label">Suporte</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TRUST BAR -->
-<div class="trust-bar">
-  <div class="trust-item"><span>⚡</span> Ativação imediata</div>
-  <div class="trust-item"><span>🔒</span> 100% Antiban</div>
-  <div class="trust-item"><span>💳</span> Pix na hora</div>
-  <div class="trust-item"><span>📲</span> Suporte via WhatsApp</div>
-  <div class="trust-item"><span>🎯</span> 100% Headshot</div>
+<!-- TICKER -->
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker-inner">
+    <span class="ticker-item">⚡ Ativação Imediata <span class="ticker-sep">|</span></span>
+    <span class="ticker-item">🎯 100% Headshot <span class="ticker-sep">|</span></span>
+    <span class="ticker-item">🔒 100% Antiban <span class="ticker-sep">|</span></span>
+    <span class="ticker-item">💳 Pix na hora <span class="ticker-sep">|</span></span>
+    <span class="ticker-item">📱 iOS e Android <span class="ticker-sep">|</span></span>
+    <span class="ticker-item">🛡️ Bypass total <span class="ticker-sep">|</span></span>
+    <span class="ticker-item">📲 Suporte WhatsApp <span class="ticker-sep">|</span></span>
+    <!-- duplicate for seamless loop -->
+    <span class="ticker-item">⚡ Ativação Imediata <span class="ticker-sep">|</span></span>
+    <span class="ticker-item">🎯 100% Headshot <span class="ticker-sep">|</span></span>
+    <span class="ticker-item">🔒 100% Antiban <span class="ticker-sep">|</span></span>
+    <span class="ticker-item">💳 Pix na hora <span class="ticker-sep">|</span></span>
+    <span class="ticker-item">📱 iOS e Android <span class="ticker-sep">|</span></span>
+    <span class="ticker-item">🛡️ Bypass total <span class="ticker-sep">|</span></span>
+    <span class="ticker-item">📲 Suporte WhatsApp <span class="ticker-sep">|</span></span>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<div class="features">
+  <div class="feature-item">
+    <div class="feature-icon">⚡</div>
+    <div class="feature-text"><strong>Ativação Imediata</strong><span>Receba em minutos após o Pix</span></div>
+  </div>
+  <div class="feature-item">
+    <div class="feature-icon">🎯</div>
+    <div class="feature-text"><strong>100% Headshot</strong><span>Precisão garantida em todas as partidas</span></div>
+  </div>
+  <div class="feature-item">
+    <div class="feature-icon">🔒</div>
+    <div class="feature-text"><strong>Antiban Avançado</strong><span>Bypass completo nos analistas</span></div>
+  </div>
+  <div class="feature-item">
+    <div class="feature-icon">📲</div>
+    <div class="feature-text"><strong>Suporte 24h</strong><span>Atendimento via WhatsApp</span></div>
+  </div>
 </div>
 
 <!-- SHOP -->
 <div class="shop-section" id="shop">
-  <h2 class="shop-heading">Nossos <span>Produtos</span></h2>
+  <div class="section-header">
+    <div>
+      <div class="section-title">Nossos <span>Produtos</span></div>
+      <div class="section-sub">Escolha a plataforma e o plano ideal</div>
+    </div>
+  </div>
 
   <div class="tabs" role="tablist">
-    <button class="tab-btn active" onclick="switchTab('android',this)" role="tab">
-      🤖 Android <span class="tab-count" id="count-android">16</span>
+    <button class="tab-btn active" data-tab="android" onclick="switchTab('android',this)" role="tab">
+      🤖 Android <span class="tab-count" id="count-android"></span>
     </button>
-    <button class="tab-btn" onclick="switchTab('iphone',this)" role="tab">
-      📱 iPhone <span class="tab-count" id="count-iphone">16</span>
+    <button class="tab-btn" data-tab="iphone" onclick="switchTab('iphone',this)" role="tab">
+      📱 iPhone <span class="tab-count" id="count-iphone"></span>
     </button>
   </div>
 
@@ -730,36 +720,49 @@ footer p { font-size: 12px; color: var(--fg-muted); }
   <div id="panel-iphone" class="tab-panel"></div>
 </div>
 
+<!-- DESC MODAL -->
+<div id="desc-modal" onclick="handleDescClick(event)">
+  <div class="desc-box" role="dialog" aria-modal="true">
+    <button class="desc-close" onclick="closeDesc()">✕</button>
+    <div class="desc-group" id="desc-group-name"></div>
+    <div class="desc-text" id="desc-text"></div>
+    <div class="desc-plans" id="desc-plans"></div>
+  </div>
+</div>
+
 <!-- PIX MODAL -->
 <div class="modal-overlay" id="pix-modal" onclick="handleModalClick(event)">
   <div class="modal-box" role="dialog" aria-modal="true">
     <button class="modal-close" onclick="closePix()" aria-label="Fechar">✕</button>
+
     <div class="modal-header">
-      <div class="modal-icon">💸</div>
+      <div class="modal-pix-icon">💳</div>
       <div class="modal-title">Pagamento via Pix</div>
       <div class="modal-product" id="modal-product-name"></div>
     </div>
+
     <div class="modal-value-box">
       <div class="modal-value-label">Valor a pagar</div>
       <div class="modal-value" id="modal-value"></div>
-      <div class="modal-pix-note">à vista no Pix ✓</div>
+      <div class="modal-pix-note">✓ Pix à vista — aprovação instantânea</div>
     </div>
-    <!-- QR CODE -->
+
     <div class="modal-qr-wrap">
-      <div class="modal-qr-label">📷 Escaneie com o app do banco</div>
+      <div class="modal-qr-label">📷 Escaneie com o app do seu banco</div>
       <div id="modal-qr" class="modal-qr"></div>
     </div>
-    <!-- COPIA E COLA -->
+
     <div class="modal-key-box">
       <div class="modal-key-label">📋 Pix Copia e Cola</div>
       <div class="modal-key-row">
-        <span class="modal-key-value" id="modal-pix-code" style="font-size:10px;word-break:break-all;font-family:monospace;line-height:1.4;"></span>
+        <span class="modal-key-value" id="modal-pix-code"></span>
         <button class="btn-copy" id="btn-copy-pix" onclick="copyPixCode()">Copiar</button>
       </div>
     </div>
+
     <button class="btn-whatsapp" onclick="openWhatsComprova()">
       <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1C4.6 1 1 4.6 1 9c0 1.4.37 2.72 1.01 3.87L1 17l4.22-.99A8 8 0 0 0 9 17c4.4 0 8-3.6 8-8S13.4 1 9 1z" fill="currentColor" opacity=".9"/><path d="M6.5 7c0-.33.27-.6.6-.6h.02c.33 0 .6.27.6.6v.6c0 .37-.16.7-.42.93L6.9 9.3c.36.73 1.02 1.4 1.7 1.74l.64-.63c.23-.22.56-.35.9-.35h.06c.33 0 .6.27.6.6v1.2c0 .33-.27.6-.6.6A5.4 5.4 0 0 1 4.8 7.6c0-.33.27-.6.6-.6H6.5z" fill="#000" opacity=".85"/></svg>
-      📤 Enviar Comprovante
+      📤 Enviar Comprovante no WhatsApp
     </button>
   </div>
 </div>
@@ -768,104 +771,174 @@ footer p { font-size: 12px; color: var(--fg-muted); }
 <footer>
   <div class="footer-brand">
     <img src="logo.png" alt="Zoom Cheats" onerror="this.style.display='none'">
-    <span>ZOOM CHEATS</span>
+    <span class="footer-brand-name">ZOOM CHEATS</span>
   </div>
-  <p>© 2026 Zoom Cheats · Todos os direitos reservados</p>
-  <p style="font-size:11px;color:rgba(126,168,204,.5);">Produto digital · Uso exclusivo Free Fire</p>
+  <div class="footer-links">
+    <a onclick="openWhats()">Suporte</a>
+    <a onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Produtos</a>
+  </div>
+  <div class="copy">© 2026 Zoom Cheats · Produto digital · Free Fire</div>
 </footer>
 
 <script>
-// ── DADOS ─────────────────────────────────────────────────────
+// ── DADOS ─────────────────────────────────────────────────────────────
 const PIX_KEY = 'joaogabrielsdes5@gmail.com';
-const WHATS   = '5500000000000'; // substitua pelo número real
+const WHATS   = '5548991764531';
 
 const ANDROID = [
-  {
-    group: '🤖 Painel Android (Drip)',
-    img: 'img-android-drip.png',
-    items: [
-      { name: 'Painel Android', duration: '6H DRIP',       price: 'R$ 15,00', icon: '🤖' },
-      { name: 'Painel Android', duration: '12H DRIP',      price: 'R$ 20,00', icon: '🤖' },
-      { name: 'Painel Android', duration: '1 DIA DRIP',    price: 'R$ 25,00', icon: '🤖' },
-      { name: 'Painel Android', duration: '7 DIAS DRIP',   price: 'R$ 75,00', icon: '🤖' },
-      { name: 'Painel Android', duration: '30 DIAS DRIP',  price: 'R$ 130,00', icon: '🤖' },
-    ]
-  },
-  {
-    group: '📦 Painel Mod APK',
-    img: 'img-mod-apk.png',
-    items: [
-      { name: 'Painel Mod APK', duration: '1 DIA',        price: 'R$ 19,00',  icon: '📦' },
-      { name: 'Painel Mod APK', duration: '10 DIAS',      price: 'R$ 49,00',  icon: '📦' },
-      { name: 'Painel Mod APK', duration: '30 DIAS',      price: 'R$ 79,00',  icon: '📦' },
-      { name: 'Painel Mod APK', duration: 'PERMANENTE',   price: 'R$ 150,00', icon: '📦' },
-    ]
-  },
-  {
-    group: '🌐 Proxy Menu Android',
-    img: 'img-proxy-android.png',
-    items: [
-      { name: 'Proxy Menu Android', duration: '1 DIA',       price: 'R$ 20,00',  icon: '🌐' },
-      { name: 'Proxy Menu Android', duration: '7 DIAS',      price: 'R$ 50,00',  icon: '🌐' },
-      { name: 'Proxy Menu Android', duration: '30 DIAS',     price: 'R$ 80,00',  icon: '🌐' },
-      { name: 'Proxy Menu Android', duration: 'PERMANENTE',  price: 'R$ 200,00', icon: '🌐' },
-    ]
-  },
-  {
-    group: '🎯 HS Proxy Android',
-    img: 'img-hs-android.png',
-    items: [
-      { name: 'HS Proxy Android', duration: '1 DIA',   price: 'R$ 20,00', icon: '🎯' },
-      { name: 'HS Proxy Android', duration: '7 DIAS',  price: 'R$ 50,00', icon: '🎯' },
-      { name: 'HS Proxy Android', duration: '30 DIAS', price: 'R$ 80,00', icon: '🎯' },
-    ]
-  },
+  { group:'🤖 Painel Android (Drip)', img:'img-android-drip.png',
+    desc:`Painel indicado para TODOS os modos de jogo: ranqueadas, CS, apostados, etc.
+
+⚙️ FUNÇÕES:
+• AIMKILL • BACKJUMP • SPEED • GHOST • AIM SILENT
+• Aimbot • FOV • ESP e todas as funções gerais
+
+🛡️ 100% ANTIBAN e ANTIBLACKLIST
+🕵️ Disfarçado para apostados
+📖 Tutorial completo incluso!
+📱 Instalação fácil, direto do celular — NÃO precisa de PC!`,
+    items:[
+    {name:'Painel Android',duration:'6H DRIP',      price:'R$ 15,00',icon:'🤖'},
+    {name:'Painel Android',duration:'12H DRIP',     price:'R$ 20,00',icon:'🤖'},
+    {name:'Painel Android',duration:'1 DIA DRIP',   price:'R$ 25,00',icon:'🤖'},
+    {name:'Painel Android',duration:'7 DIAS DRIP',  price:'R$ 75,00',icon:'🤖'},
+    {name:'Painel Android',duration:'30 DIAS DRIP', price:'R$ 130,00',icon:'🤖'},
+  ]},
+  { group:'📦 Painel Mod APK', img:'img-mod-apk.png',
+    desc:`Painel indicado para Ranked, CS, Apostados, etc.
+
+⚙️ FUNÇÕES:
+• AIMBOT (Rage/Legit) • FOV • SPEED • NO RECOIL
+• ESP (Caixas, Linhas, Nome, Distância, Vida, Esqueleto)
+• TELEPORT • BYPASS
+
+🛡️ 100% ANTIBAN e ANTIBLACKLIST
+🕵️ Disfarçado — 3 dedos na tela pra ativar
+📖 Tutorial completo incluso!
+📱 Instalação fácil, direto do celular — NÃO precisa de PC!`,
+    items:[
+    {name:'Painel Mod APK',duration:'1 DIA',       price:'R$ 19,00', icon:'📦'},
+    {name:'Painel Mod APK',duration:'10 DIAS',     price:'R$ 49,00', icon:'📦'},
+    {name:'Painel Mod APK',duration:'30 DIAS',     price:'R$ 79,00', icon:'📦'},
+    {name:'Painel Mod APK',duration:'PERMANENTE',  price:'R$ 150,00',icon:'📦'},
+  ]},
+  { group:'🌐 Proxy Menu Android', img:'img-proxy-android.png',
+    desc:`MOD MENU VIA PROXY — Painel indicado para Ranked, CS, Apostados, etc.
+
+⚙️ FUNÇÕES:
+• AIMBOT (Rage/Legit) • AIMKILL • FLY • AIM SILENT
+• FOV • SPEED • NO RECOIL • TELEPORT • BYPASS
+• ESP (Caixas, Linhas, Nome, Distância, Vida, Esqueleto)
+
+🛡️ 100% ANTIBAN e ANTIBLACKLIST
+🕵️ Disfarçado — 3 dedos na tela pra ativar
+⚡ Ativação via Proxy — entrega automática e imediata!
+📱 Funciona em qualquer versão de Android! NÃO precisa de PC!`,
+    items:[
+    {name:'Proxy Menu Android',duration:'1 DIA',      price:'R$ 20,00', icon:'🌐'},
+    {name:'Proxy Menu Android',duration:'7 DIAS',     price:'R$ 50,00', icon:'🌐'},
+    {name:'Proxy Menu Android',duration:'30 DIAS',    price:'R$ 80,00', icon:'🌐'},
+    {name:'Proxy Menu Android',duration:'PERMANENTE', price:'R$ 200,00',icon:'🌐'},
+  ]},
+  { group:'🎯 HS Proxy Android', img:'img-hs-android.png',
+    desc:`HS Pescoço Android
+
+Metadado que ajusta a mira e permite que a região do pescoço do inimigo conte como HS, resultando em uma taxa de Headshots muito mais alta e jogabilidade extremamente melhor!
+
+⚙️ Funciona em TODAS as versões de Android!
+📁 Necessita da pasta MIUI
+🛡️ 100% ANTIBAN e ANTIBLACKLIST
+📖 Tutorial completo incluso!
+📱 Instalação fácil, direto do celular — NÃO precisa de PC!
+⚡ Envio automático após a compra!`,
+    items:[
+    {name:'HS Proxy Android',duration:'1 DIA',   price:'R$ 20,00',icon:'🎯'},
+    {name:'HS Proxy Android',duration:'7 DIAS',  price:'R$ 50,00',icon:'🎯'},
+    {name:'HS Proxy Android',duration:'30 DIAS', price:'R$ 80,00',icon:'🎯'},
+  ]},
 ];
 
 const IPHONE = [
-  {
-    group: '💧 Painel iOS Drip',
-    img: 'img-ios-drip.png',
-    items: [
-      { name: 'Painel iOS Drip', duration: '6H',       price: 'R$ 15,00',  icon: '💧' },
-      { name: 'Painel iOS Drip', duration: '12H',      price: 'R$ 20,00',  icon: '💧' },
-      { name: 'Painel iOS Drip', duration: '1 DIA',    price: 'R$ 25,00',  icon: '💧' },
-      { name: 'Painel iOS Drip', duration: '7 DIAS',   price: 'R$ 75,00',  icon: '💧' },
-      { name: 'Painel iOS Drip', duration: '30 DIAS',  price: 'R$ 130,00', icon: '💧' },
-    ]
-  },
-  {
-    group: '🛡️ Painel iOS Safe',
-    img: 'img-ios-safe.png',
-    items: [
-      { name: 'Painel iOS Safe', duration: '1 DIA',      price: 'R$ 20,00',  icon: '🛡️' },
-      { name: 'Painel iOS Safe', duration: '7 DIAS',     price: 'R$ 55,00',  icon: '🛡️' },
-      { name: 'Painel iOS Safe', duration: '30 DIAS',    price: 'R$ 89,00',  icon: '🛡️' },
-      { name: 'Painel iOS Safe', duration: 'PERMANENTE', price: 'R$ 250,00', icon: '🛡️' },
-    ]
-  },
-  {
-    group: '🔗 HS iOS External',
-    img: 'img-hs-external.png',
-    items: [
-      { name: 'HS iOS External', duration: '1 DIA',      price: 'R$ 15,00',  icon: '🔗' },
-      { name: 'HS iOS External', duration: '7 DIAS',     price: 'R$ 40,00',  icon: '🔗' },
-      { name: 'HS iOS External', duration: '30 DIAS',    price: 'R$ 70,00',  icon: '🔗' },
-      { name: 'HS iOS External', duration: 'PERMANENTE', price: 'R$ 150,00', icon: '🔗' },
-    ]
-  },
-  {
-    group: '📱 HS Proxy iOS (WiFi)',
-    img: 'img-hs-proxy-ios.png',
-    items: [
-      { name: 'HS Proxy iOS', duration: '1 DIA',   price: 'R$ 20,00', icon: '📱' },
-      { name: 'HS Proxy iOS', duration: '7 DIAS',  price: 'R$ 55,00', icon: '📱' },
-      { name: 'HS Proxy iOS', duration: '30 DIAS', price: 'R$ 83,00', icon: '📱' },
-    ]
-  },
+  { group:'💧 Painel iOS Drip', img:'img-ios-drip.png',
+    desc:`DRIP iOS — FREE FIRE | Mais que vantagem, é outro nível!
+
+Versão exclusiva para iOS
+
+⚙️ FUNÇÕES:
+• Aimbot Legit • Freeze • Gelo Invertido
+• ESP Moco • e muito mais!
+
+🎮 Suporte exclusivo para iOS
+🛡️ 100% ANTIBAN e ANTIBLACKLIST
+📖 Tutorial completo incluso!
+📱 Instalação fácil, direto do celular — NÃO precisa de PC!`,
+    items:[
+    {name:'Painel iOS Drip',duration:'6H',      price:'R$ 15,00', icon:'💧'},
+    {name:'Painel iOS Drip',duration:'12H',     price:'R$ 20,00', icon:'💧'},
+    {name:'Painel iOS Drip',duration:'1 DIA',   price:'R$ 25,00', icon:'💧'},
+    {name:'Painel iOS Drip',duration:'7 DIAS',  price:'R$ 75,00', icon:'💧'},
+    {name:'Painel iOS Drip',duration:'30 DIAS', price:'R$ 130,00',icon:'💧'},
+  ]},
+  { group:'🛡️ Painel iOS Safe', img:'img-ios-safe.png',
+    desc:`Painel iOS Safe — a escolha mais segura para iOS!
+
+Painel indicado para Ranked, CS, Apostados e todos os modos.
+
+⚙️ FUNÇÕES COMPLETAS para Free Fire no iOS
+🛡️ 100% ANTIBAN e ANTIBLACKLIST
+🕵️ Modo Safe — bypass em apostados
+📖 Tutorial completo incluso!
+📱 Instalação fácil, direto do celular — NÃO precisa de PC!
+⚡ Ativação imediata após pagamento!`,
+    items:[
+    {name:'Painel iOS Safe',duration:'1 DIA',      price:'R$ 20,00', icon:'🛡️'},
+    {name:'Painel iOS Safe',duration:'7 DIAS',     price:'R$ 55,00', icon:'🛡️'},
+    {name:'Painel iOS Safe',duration:'30 DIAS',    price:'R$ 89,00', icon:'🛡️'},
+    {name:'Painel iOS Safe',duration:'PERMANENTE', price:'R$ 250,00',icon:'🛡️'},
+  ]},
+  { group:'🔗 HS iOS External', img:'img-hs-external.png',
+    desc:`HS iOS EXTERNAL — HS injetado externamente!
+
+Configuração de HS de forma externa com:
+• HS Pescoço • HS Peito • HS Alto
+• Holograma • e muito mais funções!
+
+Possível ativar e desativar para dar bypass em apostados.
+
+⚙️ NÃO PRECISA de modo desenvolvedor!
+🛡️ 100% ANTIBAN e ANTIBLACKLIST
+📖 Tutorial completo incluso!
+📱 Instalação fácil, direto do celular — NÃO precisa de PC!
+⚡ Envio automático após a compra!`,
+    items:[
+    {name:'HS iOS External',duration:'1 DIA',      price:'R$ 15,00', icon:'🔗'},
+    {name:'HS iOS External',duration:'7 DIAS',     price:'R$ 40,00', icon:'🔗'},
+    {name:'HS iOS External',duration:'30 DIAS',    price:'R$ 70,00', icon:'🔗'},
+    {name:'HS iOS External',duration:'PERMANENTE', price:'R$ 150,00',icon:'🔗'},
+  ]},
+  { group:'📱 HS Proxy iOS (WiFi)', img:'img-hs-proxy-ios.png',
+    desc:`HS PROXY iOS — HS + Antena via WiFi (Proxy)
+
+Configuração de Proxy no próprio WiFi que permite:
+• HS Pescoço / Alto
+• Antena (opcional)
+Sem deixar resquícios no dispositivo!
+Possível ativar e desativar para dar bypass em apostados.
+
+⚙️ Funciona em TODAS as versões de iOS!
+🚫 NÃO PRECISA de modo desenvolvedor!
+🛡️ 100% ANTIBAN e ANTIBLACKLIST
+📖 Tutorial completo incluso!
+📱 Instalação fácil, direto do celular — NÃO precisa de PC!
+⚡ Envio automático após a compra!`,
+    items:[
+    {name:'HS Proxy iOS',duration:'1 DIA',   price:'R$ 20,00',icon:'📱'},
+    {name:'HS Proxy iOS',duration:'7 DIAS',  price:'R$ 55,00',icon:'📱'},
+    {name:'HS Proxy iOS',duration:'30 DIAS', price:'R$ 83,00',icon:'📱'},
+  ]},
 ];
 
-// ── RENDER ────────────────────────────────────────────────────
+// ── RENDER ────────────────────────────────────────────────────────────
 function buildPanel(groups, panelId) {
   const panel = document.getElementById(panelId);
   let total = 0;
@@ -873,27 +946,30 @@ function buildPanel(groups, panelId) {
     total += g.items.length;
     const section = document.createElement('div');
     section.className = 'product-group';
-    section.innerHTML = `<div class="group-label">${g.group}</div>
-      <div class="product-grid"></div>`;
+    section.innerHTML = `<div class="group-label">${g.group}</div><div class="product-grid"></div>`;
     const grid = section.querySelector('.product-grid');
     g.items.forEach(p => {
       const card = document.createElement('div');
       card.className = 'product-card';
-      const thumbHtml = g.img
-        ? `<img src="${g.img}" alt="${p.name}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">`
-        : `<span class="thumb-icon">${p.icon}</span>`;
+      const imgHtml = g.img
+        ? `<img src="${g.img}" alt="${p.name}" loading="lazy">`
+        : `<div class="thumb-icon">${p.icon}</div>`;
       card.innerHTML = `
-        <div class="product-thumb">${thumbHtml}</div>
+        <div class="product-thumb">
+          ${imgHtml}
+          <span class="dur-badge">${p.duration}</span>
+        </div>
         <div class="product-body">
           <div class="product-name">${p.name}</div>
-          <div class="product-duration">${p.duration}</div>
-          <div class="product-price">
+          <div class="product-price-row">
             <span class="price-now">${p.price}</span>
+            <span class="price-pix">Pix</span>
           </div>
-          <div class="price-pix">Pix à vista</div>
-          <button class="btn-buy">Comprar</button>
+          <button class="btn-buy">COMPRAR VIA PIX</button>
+          <button class="btn-details">ℹ️ Ver detalhes</button>
         </div>`;
       card.querySelector('.btn-buy').addEventListener('click', () => openPix(p.name, p.duration, p.price));
+      card.querySelector('.btn-details').addEventListener('click', () => openDesc(g));
       grid.appendChild(card);
     });
     panel.appendChild(section);
@@ -901,94 +977,103 @@ function buildPanel(groups, panelId) {
   return total;
 }
 
-const ca = buildPanel(ANDROID, 'panel-android');
-const ci = buildPanel(IPHONE,  'panel-iphone');
+// ── DESC MODAL ────────────────────────────────────────────────────────
+function openDesc(g) {
+  document.getElementById('desc-group-name').textContent = g.group;
+  document.getElementById('desc-text').textContent = g.desc || '';
+  const plansEl = document.getElementById('desc-plans');
+  plansEl.innerHTML = g.items.map(p => `
+    <div class="desc-plan" onclick="openPix('${p.name}','${p.duration}','${p.price}');closeDesc()">
+      <span class="desc-plan-dur">${p.duration}</span>
+      <span class="desc-plan-price">${p.price}</span>
+      <button class="desc-plan-btn">Comprar</button>
+    </div>`).join('');
+  document.getElementById('desc-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeDesc() {
+  document.getElementById('desc-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function handleDescClick(e) { if (e.target === e.currentTarget) closeDesc(); }
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeDesc(); closePix(); } });
+
+const ca = buildPanel(ANDROID,'panel-android');
+const ci = buildPanel(IPHONE, 'panel-iphone');
 document.getElementById('count-android').textContent = ca;
 document.getElementById('count-iphone').textContent  = ci;
 
-// ── TABS ──────────────────────────────────────────────────────
-function switchTab(id, btn) {
+// ── TABS + ROUTING ────────────────────────────────────────────────────
+function switchTab(id, btn, pushState) {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-  btn.classList.add('active');
+  document.querySelector('[data-tab="' + id + '"]').classList.add('active');
   document.getElementById('panel-' + id).classList.add('active');
+  if (pushState !== false) {
+    history.pushState({tab: id}, '', '#' + id);
+  }
 }
 
-// ── PIX PAYLOAD (EMV BR Code) ─────────────────────────────────
+// ── INIT ROUTING ─────────────────────────────────────────────────────
+function initRoute() {
+  const hash = location.hash.replace('#','');
+  const validTabs = ['android','iphone'];
+  if (validTabs.includes(hash)) {
+    switchTab(hash, null, false);
+    setTimeout(() => document.getElementById('shop').scrollIntoView({behavior:'smooth'}), 100);
+  }
+}
+window.addEventListener('popstate', e => {
+  if (e.state && e.state.tab) switchTab(e.state.tab, null, false);
+});
+window.addEventListener('DOMContentLoaded', initRoute);
+
+// ── PIX PAYLOAD (EMV BR Code) ─────────────────────────────────────────
 function crc16(str) {
   let crc = 0xFFFF;
   for (let i = 0; i < str.length; i++) {
     crc ^= str.charCodeAt(i) << 8;
-    for (let j = 0; j < 8; j++) {
-      crc = (crc & 0x8000) ? (crc << 1) ^ 0x1021 : crc << 1;
-    }
+    for (let j = 0; j < 8; j++) crc = (crc & 0x8000) ? (crc << 1) ^ 0x1021 : crc << 1;
   }
-  return (crc & 0xFFFF).toString(16).toUpperCase().padStart(4, '0');
+  return (crc & 0xFFFF).toString(16).toUpperCase().padStart(4,'0');
 }
-
 function tlv(id, value) {
-  const len = String(value.length).padStart(2, '0');
-  return id + len + value;
+  return id + String(value.length).padStart(2,'0') + value;
 }
-
 function buildPixPayload(key, amount, merchantName, merchantCity, txId) {
-  const keyTlv = tlv('00', 'BR.GOV.BCB.PIX') + tlv('01', key);
-  const merchantAccount = tlv('26', keyTlv);
-  const amountStr = parseFloat(amount).toFixed(2);
-  const name = merchantName.substring(0, 25).toUpperCase();
-  const city = merchantCity.substring(0, 15).toUpperCase();
-  const tid  = (txId || '***').substring(0, 25);
-
+  const keyTlv = tlv('00','BR.GOV.BCB.PIX') + tlv('01', key);
   let payload =
-    tlv('00', '01') +
-    merchantAccount +
-    tlv('52', '0000') +
-    tlv('53', '986') +
-    tlv('54', amountStr) +
-    tlv('58', 'BR') +
-    tlv('59', name) +
-    tlv('60', city) +
-    tlv('62', tlv('05', tid));
-
+    tlv('00','01') +
+    tlv('26', keyTlv) +
+    tlv('52','0000') +
+    tlv('53','986') +
+    tlv('54', parseFloat(amount).toFixed(2)) +
+    tlv('58','BR') +
+    tlv('59', merchantName.substring(0,25).toUpperCase()) +
+    tlv('60', merchantCity.substring(0,15).toUpperCase()) +
+    tlv('62', tlv('05',(txId||'***').substring(0,25)));
   payload += '6304';
   payload += crc16(payload);
   return payload;
 }
 
-// ── PIX MODAL ─────────────────────────────────────────────────
-let _qrInstance = null;
-
+// ── PIX MODAL ─────────────────────────────────────────────────────────
 function openPix(name, duration, price) {
   document.getElementById('modal-product-name').textContent = name + ' — ' + duration;
   document.getElementById('modal-value').textContent = price;
 
-  // valor numérico
-  const amountStr = price.replace('R$','').replace('.','').replace(',','.').trim();
+  const amountStr = price.replace('R$','').replace(/\./g,'').replace(',','.').trim();
+  const payload = buildPixPayload(PIX_KEY, amountStr, 'ZOOM CHEATS', 'SAO PAULO', 'ZOOMCHEATS');
 
-  // gera payload
-  const payload = buildPixPayload(
-    PIX_KEY,
-    amountStr,
-    'ZOOM CHEATS',
-    'SAO PAULO',
-    'ZOOMCHEATS'
-  );
-
-  // exibe código copia e cola
   document.getElementById('modal-pix-code').textContent = payload;
-  const btnPix = document.getElementById('btn-copy-pix');
-  btnPix.textContent = 'Copiar';
-  btnPix.classList.remove('copied');
+  const btn = document.getElementById('btn-copy-pix');
+  btn.textContent = 'Copiar'; btn.classList.remove('copied');
 
-  // gera QR Code
   const qrEl = document.getElementById('modal-qr');
   qrEl.innerHTML = '';
-  _qrInstance = new QRCode(qrEl, {
-    text: payload,
-    width: 180,
-    height: 180,
-    colorDark: '#000000',
-    colorLight: '#ffffff',
+  new QRCode(qrEl, {
+    text: payload, width: 190, height: 190,
+    colorDark:'#000000', colorLight:'#ffffff',
     correctLevel: QRCode.CorrectLevel.M
   });
 
@@ -1000,47 +1085,31 @@ function closePix() {
   document.getElementById('pix-modal').classList.remove('open');
   document.body.style.overflow = '';
 }
-
-function handleModalClick(e) {
-  if (e.target === e.currentTarget) closePix();
-}
-
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closePix(); });
+function handleModalClick(e) { if (e.target === e.currentTarget) closePix(); }
 
 function copyPixCode() {
   const code = document.getElementById('modal-pix-code').textContent;
-  const btn = document.getElementById('btn-copy-pix');
-  const doCopy = () => {
-    btn.textContent = '✓ Copiado!';
-    btn.classList.add('copied');
+  const btn  = document.getElementById('btn-copy-pix');
+  const ok   = () => {
+    btn.textContent = '✓ Copiado!'; btn.classList.add('copied');
     setTimeout(() => { btn.textContent = 'Copiar'; btn.classList.remove('copied'); }, 2500);
   };
-  navigator.clipboard.writeText(code).then(doCopy).catch(() => {
+  navigator.clipboard.writeText(code).then(ok).catch(() => {
     const ta = document.createElement('textarea');
-    ta.value = code;
-    ta.style.cssText = 'position:fixed;opacity:0;';
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand('copy');
-    document.body.removeChild(ta);
-    doCopy();
+    ta.value = code; ta.style.cssText = 'position:fixed;opacity:0;';
+    document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); document.body.removeChild(ta); ok();
   });
 }
 
-// legacy alias (unused but safe)
-function copyKey() { copyPixCode(); }
-
-// ── WHATSAPP ──────────────────────────────────────────────────
+// ── WHATSAPP ──────────────────────────────────────────────────────────
 function openWhats() {
-  const txt = encodeURIComponent('Olá! Preciso de suporte no Zoom Cheats.');
-  window.open('https://wa.me/' + WHATS + '?text=' + txt, '_blank');
+  window.open('https://wa.me/' + WHATS + '?text=' + encodeURIComponent('Olá! Preciso de suporte no Zoom Cheats.'), '_blank');
 }
-
 function openWhatsComprova() {
   const prod = document.getElementById('modal-product-name').textContent;
   const val  = document.getElementById('modal-value').textContent;
-  const txt  = encodeURIComponent('Olá! Efetuei o pagamento Pix de ' + val + ' para o produto: ' + prod + '. Segue o comprovante!');
-  window.open('https://wa.me/' + WHATS + '?text=' + txt, '_blank');
+  window.open('https://wa.me/' + WHATS + '?text=' + encodeURIComponent('Olá! Paguei ' + val + ' — ' + prod + '. Segue o comprovante!'), '_blank');
 }
 </script>
 </body>
