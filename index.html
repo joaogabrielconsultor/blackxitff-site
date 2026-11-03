@@ -1,0 +1,605 @@
+<title>Zoom Cheats</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap">
+
+<style>
+/* ─── TOKEN SYSTEM ─────────────────────────────────────────────────────────────
+   Dark navy base, electric blue neon — Zoom Cheats aesthetic
+   Layout: full-bleed hero → category tabs → product grid (3-col → 1-col mobile)
+────────────────────────────────────────────────────────────────────────────────*/
+:root {
+  --bg:        #03060f;
+  --surface:   #060d1e;
+  --surface2:  #0a1530;
+  --border:    rgba(0,168,255,.15);
+  --blue:      #00a8ff;
+  --blue-dim:  #0073cc;
+  --blue-glow: rgba(0,168,255,.35);
+  --fg:        #e8f4ff;
+  --fg-muted:  #7ea8cc;
+  --red:       #ff1e1e;
+  --green:     #00e676;
+
+  --font-display: 'Rajdhani', sans-serif;
+  --font-body:    'Inter', sans-serif;
+
+  color-scheme: dark;
+}
+
+/* single dark theme by design — no light variant */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.55;
+  min-height: 100%;
+  padding-left: max(0px, env(safe-area-inset-left, 0px));
+  padding-right: max(0px, env(safe-area-inset-right, 0px));
+}
+
+img { max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+/* ─── NAV ──────────────────────────────────────────────────────────────────── */
+nav {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 100;
+  background: rgba(3,6,15,.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-block: 12px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--fg);
+  flex-shrink: 0;
+}
+
+.logo-icon {
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid var(--blue);
+  border-radius: 6px;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 0 10px var(--blue-glow);
+}
+
+.logo-icon svg { display: block; }
+
+.logo-badge {
+  font-size: 10px;
+  background: var(--blue);
+  color: #000;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-weight: 700;
+  letter-spacing: .06em;
+}
+
+nav .spacer { flex: 1; }
+
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-btn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--fg-muted);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: border-color .2s, color .2s;
+}
+.nav-btn:hover { border-color: var(--blue); color: var(--blue); }
+
+.cart-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  height: 36px;
+  padding: 0 14px;
+  background: var(--blue);
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: .04em;
+  cursor: pointer;
+  box-shadow: 0 0 16px rgba(0,168,255,.4);
+  transition: box-shadow .2s;
+}
+.cart-btn:hover { box-shadow: 0 0 24px rgba(0,168,255,.65); }
+
+/* ─── HERO ─────────────────────────────────────────────────────────────────── */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: 72px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  text-align: center;
+}
+
+/* animated grid lines */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,168,255,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,168,255,.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  animation: grid-drift 20s linear infinite;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: -50% 0 -50%;
+  background: radial-gradient(ellipse 60% 40% at 50% 50%, rgba(0,100,200,.25) 0%, transparent 70%);
+  animation: pulse-glow 4s ease-in-out infinite alternate;
+}
+
+@keyframes grid-drift { to { background-position: 0 48px; } }
+@keyframes pulse-glow { from { opacity: .6; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .hero::before, .hero::after { animation: none; }
+}
+
+.hero-inner { position: relative; z-index: 1; max-width: 680px; margin-inline: auto; }
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--blue);
+  border: 1px solid rgba(0,168,255,.3);
+  border-radius: 20px;
+  padding: 4px 12px;
+  margin-bottom: 24px;
+}
+.hero-tag .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 6px var(--blue); animation: blink 1.4s step-end infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .hero-tag .dot { animation: none; } }
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.1;
+  text-wrap: balance;
+  color: var(--fg);
+  text-shadow: 0 0 30px rgba(0,168,255,.3);
+  margin-bottom: 18px;
+}
+
+.hero h1 span {
+  color: var(--blue);
+  text-shadow: 0 0 20px rgba(0,168,255,.7), 0 0 40px rgba(0,168,255,.3);
+}
+
+.hero p {
+  font-size: 15px;
+  color: var(--fg-muted);
+  max-width: 520px;
+  margin-inline: auto;
+  margin-bottom: 32px;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 28px;
+  background: var(--blue);
+  color: #000;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: .06em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 0 24px rgba(0,168,255,.5), 0 0 48px rgba(0,168,255,.2);
+  transition: box-shadow .2s, transform .15s;
+}
+.hero-cta:hover { box-shadow: 0 0 32px rgba(0,168,255,.7), 0 0 64px rgba(0,168,255,.3); transform: translateY(-1px); }
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--blue);
+  text-shadow: 0 0 16px var(--blue-glow);
+  font-variant-numeric: tabular-nums;
+}
+.stat-label { font-size: 12px; color: var(--fg-muted); margin-top: 2px; }
+
+/* ─── CATEGORIES ────────────────────────────────────────────────────────────── */
+.section-wrap {
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: .05em;
+  color: var(--fg-muted);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.cats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.cat-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  padding: 24px 16px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: border-color .2s, transform .15s;
+}
+.cat-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 120%, rgba(0,168,255,.12) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity .2s;
+}
+.cat-card:hover { border-color: var(--blue); transform: translateY(-2px); }
+.cat-card:hover::after { opacity: 1; }
+
+.cat-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0,168,255,.4);
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  background: var(--surface2);
+  box-shadow: 0 0 14px var(--blue-glow);
+}
+.cat-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--fg);
+}
+.cat-count { font-size: 12px; color: var(--fg-muted); }
+
+/* ─── PRODUCT GRID ─────────────────────────────────────────────────────────── */
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.product-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color .2s, transform .15s;
+}
+.product-card:hover { border-color: rgba(0,168,255,.4); transform: translateY(-2px); }
+
+.product-thumb {
+  background: var(--surface2);
+  aspect-ratio: 4/3;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.product-thumb::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(0,100,200,.2) 0%, transparent 70%);
+}
+.thumb-icon {
+  font-size: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.badge-off {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: var(--red);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+.product-body {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.product-name {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--fg);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-price {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.price-now {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--blue);
+  text-shadow: 0 0 10px var(--blue-glow);
+  font-variant-numeric: tabular-nums;
+}
+.price-was {
+  font-size: 11px;
+  color: var(--fg-muted);
+  text-decoration: line-through;
+  font-variant-numeric: tabular-nums;
+}
+.price-pix { font-size: 10px; color: var(--fg-muted); }
+
+.btn-buy {
+  margin-top: auto;
+  width: 100%;
+  height: 34px;
+  background: transparent;
+  border: 1px solid var(--blue);
+  border-radius: 5px;
+  color: var(--blue);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .05em;
+  cursor: pointer;
+  transition: background .2s, box-shadow .2s;
+}
+.btn-buy:hover {
+  background: var(--blue);
+  color: #000;
+  box-shadow: 0 0 16px rgba(0,168,255,.4);
+}
+
+/* ─── FOOTER ─────────────────────────────────────────────────────────────────*/
+footer {
+  border-top: 1px solid var(--border);
+  padding-block: 28px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+footer p { font-size: 12px; color: var(--fg-muted); }
+.shopee-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 16px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--fg-muted);
+  transition: border-color .2s, color .2s;
+}
+.shopee-link:hover { border-color: var(--blue); color: var(--blue); }
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────────────────────*/
+@media (max-width: 720px) {
+  .products { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 520px) {
+  .cats { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .cat-card { padding: 16px 8px 14px; }
+  .cat-icon { width: 40px; height: 40px; font-size: 18px; }
+  .cat-name { font-size: 11px; }
+  .products { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .hero { padding-block: 48px 40px; }
+  .hero-stats { gap: 24px; }
+}
+
+@media (max-width: 360px) {
+  .products { grid-template-columns: 1fr; }
+}
+</style>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <img src="logo.png" alt="Zoom Cheats" style="height:38px;width:auto;object-fit:contain;" onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='flex'">
+    <div id="logo-fallback" style="display:none;align-items:center;gap:10px;">
+      <div class="logo-icon">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+          <circle cx="9" cy="9" r="7" stroke="#00a8ff" stroke-width="1.5"/>
+          <line x1="9" y1="2" x2="9" y2="16" stroke="#00a8ff" stroke-width="1.5"/>
+          <line x1="2" y1="9" x2="16" y2="9" stroke="#00a8ff" stroke-width="1.5"/>
+          <circle cx="9" cy="9" r="2" fill="#00a8ff"/>
+        </svg>
+      </div>
+      ZOOM CHEATS <span class="logo-badge">✓</span>
+    </div>
+  </div>
+  <div class="spacer"></div>
+  <div class="nav-icons">
+    <button class="nav-btn" title="Buscar">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5"/><line x1="11" y1="11" x2="15" y2="15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <button class="nav-btn" title="Suporte">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.5"/><path d="M8 10.5V11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M6 6.5a2 2 0 1 1 3.5 1.3L8 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <button class="cart-btn">
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M1 1h2l1.5 7h7l1.5-5H4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6.5" cy="12.5" r="1" fill="currentColor"/><circle cx="11" cy="12.5" r="1" fill="currentColor"/></svg>
+      Carrinho
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag"><span class="dot"></span> Painéis disponíveis agora</div>
+    <h1>Precisão em<br><span>Cada Capa</span></h1>
+    <p>Painéis para iOS e Android com bypass nos analistas. Ganhe mais nos apostados com precisão real.</p>
+    <a href="https://www.shopee.com.br" target="_blank" class="hero-cta">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1l1.9 3.8 4.1.6-3 2.9.7 4.1L8 10.3l-3.7 1.9.7-4.1-3-2.9 4.2-.6z" fill="currentColor"/></svg>
+      Loja Oficial na Shopee
+    </a>
+    <div class="hero-stats">
+      <div><div class="stat-num">100%</div><div class="stat-label">Headshot garantido</div></div>
+      <div><div class="stat-num">R$24,99</div><div class="stat-label">Preço no Pix</div></div>
+      <div><div class="stat-num">iOS + Android</div><div class="stat-label">Compatibilidade</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<div class="section-wrap">
+  <div class="section-title">Categorias populares</div>
+  <div class="cats">
+    <div class="cat-card">
+      <div class="cat-icon">🤖</div>
+      <div class="cat-name">Android</div>
+      <div class="cat-count">28 painéis</div>
+    </div>
+    <div class="cat-card">
+      <div class="cat-icon">📱</div>
+      <div class="cat-name">iPhone</div>
+      <div class="cat-count">12 painéis</div>
+    </div>
+    <div class="cat-card">
+      <div class="cat-icon">🎁</div>
+      <div class="cat-name">Packs FF</div>
+      <div class="cat-count">8 packs</div>
+    </div>
+  </div>
+
+  <!-- PRODUCTS -->
+  <div class="section-title">Destaques — Android</div>
+  <div class="products" id="grid"></div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Black XIT FF · Todos os direitos reservados</p>
+  <a href="https://www.shopee.com.br" target="_blank" class="shopee-link">🛍️ Shopee Oficial →</a>
+</footer>
+
+<script>
+const products = [
+  { name: "PROXY REMOTE FF XIT VIA INTERNET 🛜 | iOS & ANDROID | 100% HS – LANÇAMENTO!", icon: "🌐", was: "R$ 89,90", now: "R$ 24,99", off: "72%" },
+  { name: "PROXY MENU XIT VIA PROXY ANDROID INJETÁVEL 100% HS 100% ANTIBAN", icon: "💉", was: "R$ 100,00", now: "R$ 24,99", off: "75%" },
+  { name: "PAINEL FFH4X URIEL XITER 100% HS PERMANENTE PARA TODOS OS ANDROIDS", icon: "🎯", was: "R$ 50,00", now: "R$ 24,99", off: "50%" },
+  { name: "PAINEL GARENA MENU XIT FFH4X FREE FIRE ATUALIZADO 100% HS", icon: "🔥", was: "R$ 50,00", now: "R$ 24,99", off: "50%" },
+  { name: "PAINEL NETFLIX NOVA ATUALIZAÇÃO ANDROID PERMANENTE – AIMBOT LEGIT + NORECOIL", icon: "🎬", was: "R$ 50,00", now: "R$ 24,99", off: "50%" },
+  { name: "PAINEL FREESTYLE FFH4X 100% HS ANDROID 2026 PARA TODOS OS ANDROIDS", icon: "⚡", was: "R$ 50,00", now: "R$ 24,99", off: "50%" },
+  { name: "PAINEL DARK AURA ATUALIZADO PERMANENTE 100% HS PARA TODOS OS ANDROIDS", icon: "🌑", was: "R$ 50,00", now: "R$ 24,99", off: "50%" },
+  { name: "GOLD EXTREME 100% HS ANDROID PERMANENTE PARA TODOS OS ANDROIDS", icon: "👑", was: "R$ 50,00", now: "R$ 24,99", off: "50%" },
+  { name: "PAINEL FACEBOOK ANDROID ATUALIZADO 🔓 100% HS ANTIBAN | TODOS OS ANDROID", icon: "🔓", was: "R$ 50,00", now: "R$ 24,99", off: "50%" },
+];
+
+const grid = document.getElementById('grid');
+products.forEach(p => {
+  grid.insertAdjacentHTML('beforeend', `
+    <div class="product-card">
+      <div class="product-thumb">
+        <span class="thumb-icon">${p.icon}</span>
+        <span class="badge-off">-${p.off}</span>
+      </div>
+      <div class="product-body">
+        <div class="product-name">${p.name}</div>
+        <div class="product-price">
+          <span class="price-now">${p.now}</span>
+          <span class="price-was">${p.was}</span>
+        </div>
+        <div class="price-pix">À vista no Pix</div>
+        <button class="btn-buy">Comprar agora</button>
+      </div>
+    </div>
+  `);
+});
+</script>
