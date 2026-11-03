@@ -581,22 +581,75 @@ footer .copy{font-size:11px;color:rgba(106,150,187,.45)}
    RESPONSIVE
 ══════════════════════════════════════════ */
 @media(max-width:640px){
-  .hero{padding:56px 16px 44px}
-  .hero h1{font-size:1.9rem}
-  .stat-item{padding:0 18px}
-  .stat-num{font-size:1.5rem}
-  .shop-section{padding:36px 16px 56px}
-  .product-grid{grid-template-columns:repeat(2,1fr);gap:10px}
-  .product-thumb{height:130px}
-  .section-header{flex-direction:column;align-items:flex-start}
-  .modal-box{padding:26px 18px 20px}
-  .modal-value{font-size:32px}
-  footer{flex-direction:column;gap:16px}
-  .footer-links{gap:16px}
+  /* nav: esconde "Links" e "Suporte", mantém logo + CTA */
+  nav{padding:0 12px;gap:8px;height:52px}
+  .nav-link{display:none}
+  .nav-cta{height:34px;padding:0 14px;font-size:13px}
+  .logo-name{font-size:13px}
+  .logo img{height:32px}
+
+  /* hero mais compacto */
+  .hero{padding:32px 16px 28px}
+  .hero-badge{font-size:9px;padding:4px 12px;margin-bottom:20px}
+  .hero h1{font-size:1.6rem;margin-bottom:12px}
+  .hero-sub{font-size:13px;margin-bottom:24px}
+  .btn-primary{height:46px;padding:0 22px;font-size:14px}
+  .btn-ghost{height:46px;padding:0 18px;font-size:13px}
+
+  /* stats em 2x2 */
+  .hero-stats{margin-top:28px;padding-top:20px;flex-wrap:wrap}
+  .stat-item{padding:10px 16px;border-right:none;border-bottom:1px solid var(--border);flex:1 0 45%}
+  .stat-item:nth-child(odd){border-right:1px solid var(--border)}
+  .stat-item:last-child,.stat-item:nth-last-child(2):nth-child(odd){border-bottom:none}
+  .stat-num{font-size:1.4rem}
+
+  /* ticker menor */
+  .ticker-item{font-size:10px;padding:0 16px}
+
+  /* features empilhado */
+  .features{grid-template-columns:1fr 1fr}
+  .feature-item{padding:14px 12px;gap:10px}
+  .feature-icon{width:34px;height:34px;font-size:15px}
+  .feature-text strong{font-size:12px}
+  .feature-text span{font-size:11px}
+
+  /* shop */
+  .shop-section{padding:24px 12px 48px}
+  .section-title{font-size:1.2rem}
+  .tabs{width:100%}
+  .tab-btn{flex:1;justify-content:center;padding:8px 10px;font-size:13px}
+
+  /* cards 2 colunas compactas */
+  .product-grid{grid-template-columns:repeat(2,1fr);gap:8px}
+  .product-thumb{height:110px}
+  .dur-badge{font-size:9px;padding:2px 6px}
+  .product-body{padding:10px}
+  .product-name{font-size:12px}
+  .price-now{font-size:1.1rem}
+  .price-pix{font-size:9px}
+  .btn-buy{height:32px;font-size:11px}
+  .btn-details{height:26px;font-size:10px}
+
+  /* modal */
+  .modal-box{padding:22px 14px 18px;border-radius:16px}
+  .modal-pix-icon{width:46px;height:46px;font-size:22px}
+  .modal-title{font-size:15px}
+  .modal-value{font-size:28px}
+  .modal-qr{padding:8px}
+  #modal-qr canvas,#modal-qr img{width:160px!important;height:160px!important}
+
+  /* desc modal */
+  .desc-box{padding:22px 14px 18px}
+
+  /* footer */
+  footer{padding:20px 16px;flex-direction:column;gap:12px;text-align:center}
+  .footer-links{justify-content:center;gap:16px}
 }
 @media(max-width:380px){
-  .product-grid{grid-template-columns:1fr 1fr;gap:8px}
-  .price-now{font-size:1.1rem}
+  .hero h1{font-size:1.4rem}
+  .product-grid{grid-template-columns:1fr 1fr}
+  .product-thumb{height:95px}
+  .price-now{font-size:1rem}
 }
 </style>
 </head>
